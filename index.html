@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Suhaas Narayanan — National Master, Chess Coach</title>
+<meta name="description" content="Suhaas Narayanan is a USCF National Master and chess coach. Follow his journey to 2200, explore coaching packages, and read his free chess improvement guide.">
+<meta property="og:title" content="Suhaas Narayanan — National Master, Chess Coach">
+<meta property="og:description" content="USCF National Master and chess coach sharing his journey to 2200. Free chess improvement guide, coaching packages, and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://coachsuhaas.github.io">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Suhaas Narayanan — National Master, Chess Coach">
+<meta name="twitter:description" content="USCF National Master and chess coach sharing his journey to 2200. Free chess improvement guide, coaching packages, and more.">
 <style>
   :root {
     --navy: #1a3a5c;
@@ -203,6 +211,22 @@
   .game-link { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: var(--white); padding: 10px 20px; border-radius: 4px; text-decoration: none; font-size: 0.88rem; font-weight: bold; transition: background 0.2s; margin-top: 8px; }
   .game-link:hover { background: var(--navy); }
 
+  /* SKIP LINK */
+  .skip-link {
+    position: absolute; top: -48px; left: 16px;
+    background: var(--blue); color: var(--white);
+    padding: 8px 16px; border-radius: 0 0 4px 4px;
+    font-size: 0.88rem; font-family: 'Georgia', serif;
+    z-index: 999; transition: top 0.2s; text-decoration: none;
+  }
+  .skip-link:focus { top: 0; }
+
+  /* ERROR MSG */
+  .error-msg { display: none; background: #fde8e8; border: 1px solid #f48fb1; color: #c62828; padding: 14px; border-radius: 4px; margin-top: 14px; text-align: center; font-size: 0.93rem; }
+
+  /* BLOG CARD AS LINK */
+  a.blog-card { display: block; text-decoration: none; color: inherit; }
+
   @media (max-width: 640px) {
     .hero h1 { font-size: 2rem; }
     .home-about-inner { grid-template-columns: 1fr; }
@@ -215,6 +239,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <nav>
   <div class="nav-logo" onclick="showPage('home')"><span>♔</span> Suhaas Narayanan</div>
@@ -228,11 +253,12 @@
 </nav>
 
 <!-- ══ HOME ══ -->
+<div id="main-content">
 <div class="page active" id="page-home">
   <div class="hero">
-    <div class="hero-board"><script>for(let i=0;i<64;i++) document.write('<div></div>')</script></div>
+    <div class="hero-board" id="hero-board"></div>
     <div class="hero-content">
-      <div class="hero-badge">♟ National Master · 22 Years of Chess</div>
+      <div class="hero-badge">♟ National Master · 20+ Years of Chess</div>
       <h1>Suhaas Narayanan.<br><em>Chess Coach & NM.</em></h1>
       <p>I'm a chess enthusiast, player, director, and coach. This site reflects on what worked — and what didn't — on my journey to 2200 USCF, in hopes that it can help others on their own chess paths.</p>
       <div class="hero-btns">
@@ -275,11 +301,11 @@
   </div>
 
   <div class="sub-nav" id="subnav-journey">
-    <button class="active" onclick="scrollToSub('journey','early')">Early Years</button>
-    <button onclick="scrollToSub('journey','serious')">Getting Serious</button>
-    <button onclick="scrollToSub('journey','push')">The Final Push</button>
-    <button onclick="scrollToSub('journey','training')">My Training</button>
-    <button onclick="scrollToSub('journey','games')">My 60 Games</button>
+    <button class="active" onclick="scrollToSub('journey','early',event)">Early Years</button>
+    <button onclick="scrollToSub('journey','serious',event)">Getting Serious</button>
+    <button onclick="scrollToSub('journey','push',event)">The Final Push</button>
+    <button onclick="scrollToSub('journey','training',event)">My Training</button>
+    <button onclick="scrollToSub('journey','games',event)">My 60 Games</button>
   </div>
 
   <div class="section-content">
@@ -397,10 +423,10 @@
   </div>
 
   <div class="sub-nav" id="subnav-philosophy">
-    <button class="active" onclick="scrollToSub('philosophy','principles')">Core Principles</button>
-    <button onclick="scrollToSub('philosophy','profile')">Your Chess Profile</button>
-    <button onclick="scrollToSub('philosophy','faq')">FAQ</button>
-    <button onclick="scrollToSub('philosophy','blog')">Blog Posts</button>
+    <button class="active" onclick="scrollToSub('philosophy','principles',event)">Core Principles</button>
+    <button onclick="scrollToSub('philosophy','profile',event)">Your Chess Profile</button>
+    <button onclick="scrollToSub('philosophy','faq',event)">FAQ</button>
+    <button onclick="scrollToSub('philosophy','blog',event)">Blog Posts</button>
   </div>
 
   <div class="section-content">
@@ -487,27 +513,27 @@
       <h3>Frequently Asked Questions</h3>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Who are you? <span class="faq-arrow">▼</span></button>
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Who are you? <span class="faq-arrow">▼</span></button>
         <div class="faq-a">I'm a chess enthusiast, player, director, and coach. This website is a way of reflecting on what worked and didn't work for me, in hopes that it can reach others. I want this to be generally comprehensive, and I'll section off subjects to make things easier to digest.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Who should be reading this? <span class="faq-arrow">▼</span></button>
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Who should be reading this? <span class="faq-arrow">▼</span></button>
         <div class="faq-a">Primarily aimed at chess players and more specifically improvers. Anyone who's interested in chess should enjoy at least some parts of this guide though. Feel free to skim through and take what you need from this if anything's helpful.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Why are you the authority? <span class="faq-arrow">▼</span></button>
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Why are you the authority? <span class="faq-arrow">▼</span></button>
         <div class="faq-a">I'm not! I'd like as much public discussion on this in order to fine-tune it and make it useful. I do have some credibility, having recently achieved NM and being a chess player since I was 4. This means I have nearly two decades of experience across different life stages. I've also digested a variety of information from different sources about improvement and have my own takes on what works and what doesn't.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Can I trust this? <span class="faq-arrow">▼</span></button>
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Can I trust this? <span class="faq-arrow">▼</span></button>
         <div class="faq-a">Take everything with a grain of salt and in consideration with your own common sense and the word of others. This largely reflects my opinion and I'll reference when it's something the broader chess community supports. Think of chess literature like academia — everyone does their own research and presents it for feedback. See what works for you.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is this free? <span class="faq-arrow">▼</span></button>
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Is this free? <span class="faq-arrow">▼</span></button>
         <div class="faq-a">Yes — no memberships, no paywalls. I benefitted from a variety of free resources online and I'd like to contribute to that. The guide is completely free. Coaching services are separate and listed on the Coaching page.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Will this make a difference? <span class="faq-arrow">▼</span></button>
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Will this make a difference? <span class="faq-arrow">▼</span></button>
         <div class="faq-a">I sure hope so! Even if it's more security in your own beliefs than mine, I think it's important to create dialogue and push on what is known vs. unknown in chess improvement. If there's at least one thing you can take away, that's a win.</div>
       </div>
     </div>
@@ -517,28 +543,48 @@
     <div class="subsection" id="sub-philosophy-blog">
       <div class="subsection-label">More Ideas</div>
       <h3>Blog Posts</h3>
-      <p>More idea-based thoughts on chess, improvement, and the journey. Updated as I continue writing.</p>
+      <p>In-depth pieces on chess, improvement, and the journey. Click any post to read more.</p>
       <div class="blog-grid">
-        <div class="blog-card">
+        <a class="blog-card" href="blog/the-final-push.html">
           <div class="blog-card-header">
-            <div class="blog-card-icon">💻</div>
+            <div class="blog-card-icon">🏆</div>
             <h4>The Final Push</h4>
           </div>
           <div class="blog-card-body">
-            <p>What actually contributed to the final push to reach NM? A reflection on the specific changes and mindset shifts that made the difference in the end.</p>
+            <p>What actually contributed to reaching NM? A reflection on the specific changes and mindset shifts that made the difference in the end.</p>
             <span class="blog-tag">Improvement</span>
           </div>
-        </div>
-        <div class="blog-card">
+        </a>
+        <a class="blog-card" href="blog/openings.html">
           <div class="blog-card-header">
-            <div class="blog-card-icon">📝</div>
-            <h4>More Coming Soon</h4>
+            <div class="blog-card-icon">📚</div>
+            <h4>Openings: More or Less?</h4>
           </div>
           <div class="blog-card-body">
-            <p>This is a work in progress. I'll be adding more blog posts covering openings, middlegames, endgames, tactics, calculation, mindset, and more.</p>
-            <span class="blog-tag">In Progress</span>
+            <p>Opening study is fun — but is it the best use of your time? My honest take on where openings fit in a well-rounded training plan.</p>
+            <span class="blog-tag">Openings</span>
           </div>
-        </div>
+        </a>
+        <a class="blog-card" href="blog/endgames-first.html">
+          <div class="blog-card-header">
+            <div class="blog-card-icon">♔</div>
+            <h4>Endgames First</h4>
+          </div>
+          <div class="blog-card-body">
+            <p>The most neglected phase of the game is also the most instructive. Why I think endgame study should come before everything else.</p>
+            <span class="blog-tag">Endgames</span>
+          </div>
+        </a>
+        <a class="blog-card" href="blog/tactics-habit.html">
+          <div class="blog-card-header">
+            <div class="blog-card-icon">⚡</div>
+            <h4>Building a Tactics Habit</h4>
+          </div>
+          <div class="blog-card-body">
+            <p>Tactics are the highest-ROI training activity at almost every level. Here's how to build a daily habit that actually sticks.</p>
+            <span class="blog-tag">Tactics</span>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -554,9 +600,9 @@
   </div>
 
   <div class="sub-nav" id="subnav-coaching">
-    <button class="active" onclick="scrollToSub('coaching','packages')">Packages</button>
-    <button onclick="scrollToSub('coaching','approach')">My Approach</button>
-    <button onclick="scrollToSub('coaching','testimonials')">Testimonials</button>
+    <button class="active" onclick="scrollToSub('coaching','packages',event)">Packages</button>
+    <button onclick="scrollToSub('coaching','approach',event)">My Approach</button>
+    <button onclick="scrollToSub('coaching','testimonials',event)">Testimonials</button>
   </div>
 
   <div class="section-content">
@@ -687,12 +733,12 @@
 
       <div>
         <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" id="fname" placeholder="Magnus"></div>
-          <div class="form-group"><label>Last Name</label><input type="text" id="lname" placeholder="Carlsen"></div>
+          <div class="form-group"><label for="fname">First Name</label><input type="text" id="fname" placeholder="Magnus"></div>
+          <div class="form-group"><label for="lname">Last Name</label><input type="text" id="lname" placeholder="Carlsen"></div>
         </div>
-        <div class="form-group"><label>Email Address</label><input type="email" id="email" placeholder="you@example.com"></div>
+        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="you@example.com"></div>
         <div class="form-group">
-          <label>Your Chess Level</label>
+          <label for="level">Your Chess Level</label>
           <select id="level">
             <option value="">Select your level...</option>
             <option>Complete Beginner</option>
@@ -704,7 +750,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Reason for Reaching Out</label>
+          <label for="reason">Reason for Reaching Out</label>
           <select id="reason">
             <option value="">Select...</option>
             <option>Coaching inquiry — Training Games</option>
@@ -715,50 +761,126 @@
             <option>Other</option>
           </select>
         </div>
-        <div class="form-group"><label>Tell Me More</label><textarea id="goals" placeholder="What are you hoping to work on? Any upcoming tournaments? Feedback on the site? Say anything!"></textarea></div>
+        <div class="form-group"><label for="goals">Tell Me More</label><textarea id="goals" placeholder="What are you hoping to work on? Any upcoming tournaments? Feedback on the site? Say anything!"></textarea></div>
         <button class="submit-btn" onclick="submitForm()">Send Message ♟</button>
         <div class="success-msg" id="success">✓ Message sent! I'll be in touch within 48 hours.</div>
+        <div class="error-msg" id="form-error">✗ There was a problem sending your message. Please try again.</div>
       </div>
     </div>
   </div>
   <footer>© 2026 <span>Suhaas Narayanan</span> · All rights reserved</footer>
 </div>
+</div><!-- /#main-content -->
 
 <script>
-  function showPage(id) {
+  // ── Hero board (replaces document.write anti-pattern) ──
+  const board = document.getElementById('hero-board');
+  for (let i = 0; i < 64; i++) board.appendChild(document.createElement('div'));
+
+  // ── Page navigation with URL hash support ──
+  const VALID_PAGES = ['home', 'journey', 'philosophy', 'coaching', 'contact'];
+
+  function showPage(id, pushHistory = true) {
+    if (!VALID_PAGES.includes(id)) return;
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
     document.getElementById('nav-' + id).classList.add('active');
     window.scrollTo(0, 0);
-    // reset sub-nav active states
     document.querySelectorAll('.sub-nav button').forEach(b => b.classList.remove('active'));
     const firstSub = document.querySelector('#subnav-' + id + ' button');
     if (firstSub) firstSub.classList.add('active');
+    if (pushHistory) history.pushState({ page: id }, '', '#' + id);
   }
 
-  function scrollToSub(page, sub) {
+  function scrollToSub(page, sub, e) {
     const el = document.getElementById('sub-' + page + '-' + sub);
     if (!el) return;
     el.scrollIntoView({ behavior: 'smooth' });
-    // update sub-nav active
     document.querySelectorAll('#subnav-' + page + ' button').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
+    if (e && e.target) e.target.classList.add('active');
+    history.pushState({ page, sub }, '', '#' + page + '/' + sub);
   }
 
+  // Handle browser back/forward
+  window.addEventListener('popstate', function (e) {
+    if (e.state && e.state.page) {
+      showPage(e.state.page, false);
+      if (e.state.sub) {
+        setTimeout(() => {
+          const el = document.getElementById('sub-' + e.state.page + '-' + e.state.sub);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      }
+    }
+  });
+
+  // Parse hash on initial load for deep links
+  (function () {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const [page, sub] = hash.split('/');
+    if (VALID_PAGES.includes(page)) {
+      showPage(page, false);
+      if (sub) {
+        setTimeout(() => {
+          const el = document.getElementById('sub-' + page + '-' + sub);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  })();
+
+  // ── FAQ accordion ──
   function toggleFaq(btn) {
     const a = btn.nextElementSibling;
     const arrow = btn.querySelector('.faq-arrow');
-    a.classList.toggle('open');
+    const isOpen = a.classList.toggle('open');
     arrow.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
   }
 
-  function submitForm() {
+  // ── Contact form via Formspree ──
+  // Sign up free at formspree.io, create a form, then replace YOUR_FORM_ID below.
+  const FORMSPREE_ID = 'xzdwgakv';
+
+  async function submitForm() {
     const fname = document.getElementById('fname').value.trim();
     const email = document.getElementById('email').value.trim();
+    document.getElementById('success').style.display = 'none';
+    document.getElementById('form-error').style.display = 'none';
     if (!fname || !email) { alert('Please fill in at least your name and email address.'); return; }
-    document.getElementById('success').style.display = 'block';
-    ['fname','lname','email','level','reason','goals'].forEach(id => { document.getElementById(id).value = ''; });
+
+    const btn = document.querySelector('.submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: fname + ' ' + document.getElementById('lname').value.trim(),
+          email,
+          level: document.getElementById('level').value,
+          reason: document.getElementById('reason').value,
+          message: document.getElementById('goals').value,
+        }),
+      });
+      if (res.ok) {
+        document.getElementById('success').style.display = 'block';
+        ['fname', 'lname', 'email', 'level', 'reason', 'goals'].forEach(id => {
+          document.getElementById(id).value = '';
+        });
+      } else {
+        document.getElementById('form-error').style.display = 'block';
+      }
+    } catch (_) {
+      document.getElementById('form-error').style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message ♟';
+    }
   }
 </script>
 </body>
