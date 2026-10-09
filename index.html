@@ -153,6 +153,21 @@
   .home-card h4 { font-size: var(--fs-card); margin-bottom: 6px; }
   .home-card p { font-size: var(--fs-small); margin: 0; }
 
+
+  /* Home: favorite games (Lichess embed) */
+  .home-games { padding: var(--s6) max(24px, calc((100% - 1040px) / 2)); background: var(--white); }
+  .home-games h2 { font-size: var(--fs-section); margin-bottom: var(--s2); }
+  .home-games > p { color: var(--muted); max-width: 65ch; margin-bottom: var(--s3); }
+  .game-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s1); margin-bottom: var(--s2); }
+  .game-tab { text-align: left; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 14px; cursor: pointer; color: var(--navy); transition: border-color 0.2s, background 0.2s; min-width: 0; }
+  .game-tab strong { display: block; font-weight: 600; font-size: 0.95rem; }
+  .game-tab span { display: block; font-size: 0.8rem; color: var(--muted); }
+  .game-tab:hover { border-color: var(--blue); }
+  .game-tab.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+  .game-tab.active span { color: var(--blue-on-navy); }
+  .game-frame { width: 100%; max-width: 860px; aspect-ratio: 600 / 397; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--band); margin-bottom: var(--s3); }
+  .game-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
   /* ── PAGE HEADER (navy) ── */
   .section-hero { background: var(--navy); color: var(--white); padding: var(--s5) var(--gutter) var(--s4); }
   .section-hero h2 { font-size: var(--fs-page); color: var(--white); letter-spacing: -0.01em; }
@@ -323,6 +338,9 @@
     .home-about-inner, .home-cards, .contact-grid, .form-row,
     .principles-grid, .principles-grid.grid-3, .pricing-grid, .blog-grid { grid-template-columns: 1fr; }
     .quote-block { padding: var(--s3); font-size: 1.2rem; }
+    .home-games { padding-left: 20px; padding-right: 20px; }
+    .game-tabs { grid-template-columns: repeat(2, 1fr); }
+    .game-frame { aspect-ratio: 3 / 4; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -400,6 +418,27 @@
         <div class="home-card"><h4>Fun</h4><p>This website is a passion project, so I hope you enjoy it!</p></div>
       </div>
     </div>
+  </div>
+
+  <!-- Favorite games: embedded from the Lichess study "My 60".
+       To add a game: copy a button and change data-ch to the chapter's 8-letter ID
+       (the last part of the chapter's URL on Lichess). -->
+  <div class="home-games">
+    <div class="subsection-label">From My 60</div>
+    <h2>Favorite Games</h2>
+    <p>Play through a few of the games that shaped my journey. Pick a game, then use the arrows under the board to step through the moves.</p>
+    <div class="game-tabs">
+        <button type="button" class="game-tab active" data-ch="r3iOWa6i" aria-pressed="true"><strong>vs. GM Dlugy</strong><span>Philly Open 2025 · Draw</span></button>
+        <button type="button" class="game-tab" data-ch="hgJHRFfv" aria-pressed="false"><strong>vs. FM Andersen</strong><span>Denver · Win</span></button>
+        <button type="button" class="game-tab" data-ch="67rWINLT" aria-pressed="false"><strong>vs. Shtivelband</strong><span>CO Class 2025 · Win</span></button>
+        <button type="button" class="game-tab" data-ch="POR8VZlj" aria-pressed="false"><strong>vs. Bucholz</strong><span>CO Closed 2024 · Win</span></button>
+        <button type="button" class="game-tab" data-ch="kKKP2PWU" aria-pressed="false"><strong>vs. Shubh Misra</strong><span>Win</span></button>
+        <button type="button" class="game-tab" data-ch="JaNKJQIU" aria-pressed="false"><strong>vs. Vidit</strong><span>Online · Loss</span></button>
+    </div>
+    <div class="game-frame">
+      <iframe id="game-embed" title="Favorite game, embedded from Lichess" src="https://lichess.org/study/embed/oAqAo3ZN/r3iOWa6i?theme=blue&amp;bg=light" loading="lazy"></iframe>
+    </div>
+    <a class="game-link" href="https://lichess.org/study/oAqAo3ZN" target="_blank" rel="noopener">See all my favorite games on Lichess</a>
   </div>
   <footer>© 2026 <span>Suhaas Narayanan</span> · All rights reserved</footer>
 </div>
@@ -1214,6 +1253,17 @@
     // Re-align once web fonts finish loading, since they can shift the layout slightly
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => jumpToSub(page, sub));
   })();
+
+  // ── Favorite games picker (Lichess embed on Home) ──
+  document.querySelectorAll('.game-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('game-embed').src = 'https://lichess.org/study/embed/oAqAo3ZN/' + btn.dataset.ch + '?theme=blue&bg=light';
+      document.querySelectorAll('.game-tab').forEach(b => {
+        b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+    });
+  });
 
   // ── FAQ accordion ──
   function toggleFaq(btn) {
