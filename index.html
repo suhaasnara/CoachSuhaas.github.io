@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suhaas Narayanan — National Master, Chess Coach</title>
+<meta name="description" content="Suhaas Narayanan is a USCF National Master and chess coach. Follow his journey to 2200, explore coaching packages, and read his free chess improvement guide.">
+<meta property="og:title" content="Suhaas Narayanan — National Master, Chess Coach">
+<meta property="og:description" content="USCF National Master and chess coach sharing his journey to 2200. Free chess improvement guide, coaching packages, and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://suhaasnara.github.io">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Suhaas Narayanan — National Master, Chess Coach">
+<meta name="twitter:description" content="USCF National Master and chess coach sharing his journey to 2200. Free chess improvement guide, coaching packages, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  /* ═══════════════════════════════════════════════════════════
+     DESIGN TOKENS — change colors, fonts and spacing here only.
+     Layout: navy page headers, then full-width sections that
+     alternate white / pale blue, text held to a ~65-character column.
+     ═══════════════════════════════════════════════════════════ */
+  :root {
+    /* Color */
+    --navy: #13284a;        /* page headers, footer, headings */
+    --ink: #1b2636;         /* body text */
+    --muted: #536175;       /* secondary text */
+    --blue: #1f4e8c;        /* the one accent: links, labels, buttons */
+    --blue-on-navy: #a9c4ec;/* accent text on navy */
+    --band: #f2f6fb;        /* alternating section background */
+    --callout: #e2eaf6;     /* callout boxes */
+    --line: #d9e1ec;        /* thin dividing lines */
+    --white: #ffffff;
+
+    /* Type */
+    --serif: 'Libre Caslon Text', Georgia, 'Times New Roman', serif;
+    --sans: 'Source Sans 3', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --fs-hero: 3.5rem;      /* home page name */
+    --fs-page: 2.75rem;     /* page title in navy header */
+    --fs-section: 1.875rem; /* section title (h3) */
+    --fs-sub: 1.3rem;       /* subheading inside a section */
+    --fs-card: 1.125rem;    /* card titles */
+    --fs-body: 1.0625rem;   /* running text (17px) */
+    --fs-small: 0.9375rem;  /* lists in cards, captions */
+    --fs-label: 0.75rem;    /* small uppercase labels */
+
+    /* Spacing */
+    --s1: 8px; --s2: 16px; --s3: 24px; --s4: 40px; --s5: 64px; --s6: 96px;
+    --content: 760px;       /* width of the reading column */
+    --gutter: max(24px, calc((100% - var(--content)) / 2));
+    --nav-h: 68px;
+    --radius: 4px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); font-size: var(--fs-body); background: var(--white); color: var(--ink); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; color: var(--navy); line-height: 1.2; text-wrap: balance; }
+  a { color: var(--blue); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: var(--navy); }
+  button { font-family: var(--sans); }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--white); height: var(--nav-h);
+    padding: 0 max(24px, calc((100% - 1120px) / 2));
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo { font-family: var(--serif); color: var(--navy); font-size: 1.25rem; cursor: pointer; }
+  .nav-links { display: flex; gap: 2px; align-items: center; }
+  .nav-links button {
+    background: none; border: none; color: var(--muted);
+    font-size: 0.95rem; cursor: pointer; padding: 8px 12px; transition: color 0.2s, box-shadow 0.2s;
+  }
+  .nav-links button:hover { color: var(--navy); }
+  .nav-links button.active { color: var(--navy); box-shadow: inset 0 -2px 0 var(--blue); }
+
+  /* Nav dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-toggle .caret { font-size: 0.6rem; margin-left: 5px; display: inline-block; transition: transform 0.2s; }
+  .nav-dropdown.open .caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    display: none; position: absolute; top: calc(100% + 8px); left: 0; min-width: 240px;
+    background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: 0 12px 32px rgba(19, 40, 74, 0.12); padding: 6px; z-index: 200;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
+  @media (hover: hover) {
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown:hover .caret { transform: rotate(180deg); }
+  }
+  .nav-links .nav-dropdown-menu button { display: block; width: 100%; text-align: left; padding: 9px 12px; color: var(--ink); box-shadow: none; }
+  .nav-links .nav-dropdown-menu button:hover { background: var(--band); color: var(--blue); }
+  .nav-dropdown-menu .menu-divider { border: none; border-top: 1px solid var(--line); margin: 4px 0; }
+
+  /* ── PAGES ── */
+  .page { display: none; animation: fadeIn 0.3s ease; }
+  .page.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ── HOME HERO (navy) ── */
+  .hero { background: var(--navy); color: var(--white); padding: var(--s6) max(24px, calc((100% - 1040px) / 2)) var(--s5); }
+  .hero-content { max-width: 1040px; }
+  .hero-badge { font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-on-navy); margin-bottom: var(--s3); }
+  .hero h1 { font-size: var(--fs-hero); line-height: 1.08; color: var(--white); margin-bottom: var(--s3); letter-spacing: -0.01em; }
+  .hero h1 em { color: var(--blue-on-navy); }
+  .hero p { font-size: 1.15rem; color: rgba(255, 255, 255, 0.78); max-width: 60ch; margin-bottom: var(--s4); }
+  .hero-btns { display: flex; gap: var(--s2); flex-wrap: wrap; }
+  .btn-primary, .btn-secondary { font-size: 1rem; font-weight: 600; padding: 13px 28px; border-radius: var(--radius); cursor: pointer; transition: background 0.2s, color 0.2s; }
+  .btn-primary { background: var(--white); color: var(--navy); border: 1px solid var(--white); }
+  .btn-primary:hover { background: var(--callout); }
+  .btn-secondary { background: transparent; color: var(--white); border: 1px solid rgba(255, 255, 255, 0.45); }
+  .btn-secondary:hover { border-color: var(--white); background: rgba(255, 255, 255, 0.08); }
+  .hero-stats { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; margin-top: var(--s5); padding-top: var(--s3); border-top: 1px solid rgba(255, 255, 255, 0.16); }
+  .stat { padding-right: var(--s4); margin-right: var(--s4); border-right: 1px solid rgba(255, 255, 255, 0.16); }
+  .stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+  .stat-num { font-family: var(--serif); font-size: 2.25rem; color: var(--white); line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .stat-label { font-size: var(--fs-label); letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.6); margin-top: 6px; }
+
+  /* Home "About" band */
+  .home-about { background: var(--band); padding: var(--s6) max(24px, calc((100% - 1040px) / 2)); }
+  .home-about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s5); align-items: start; }
+  .home-about h2 { font-size: var(--fs-section); margin-bottom: var(--s2); }
+  .home-about p { color: var(--muted); margin-bottom: var(--s2); }
+  .home-cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+  .home-card { border-top: 1px solid var(--navy); padding-top: var(--s2); }
+  .home-card h4 { font-size: var(--fs-card); margin-bottom: 6px; }
+  .home-card p { font-size: var(--fs-small); margin: 0; }
+
+  /* ── PAGE HEADER (navy) ── */
+  .section-hero { background: var(--navy); color: var(--white); padding: var(--s5) var(--gutter) var(--s4); }
+  .section-hero h2 { font-size: var(--fs-page); color: var(--white); letter-spacing: -0.01em; }
+  .section-hero h2 span { color: var(--blue-on-navy); font-style: italic; }
+  .section-hero p { color: rgba(255, 255, 255, 0.75); margin-top: var(--s1); font-size: 1.1rem; max-width: 60ch; }
+
+  /* Section menu (sticks under the nav) */
+  .sub-nav {
+    background: var(--white); border-bottom: 1px solid var(--line);
+    padding: 0 calc(var(--gutter) - 12px); display: flex; gap: 2px; overflow-x: auto;
+    position: sticky; top: var(--nav-h); z-index: 50; scrollbar-width: none;
+  }
+  .sub-nav::-webkit-scrollbar { display: none; }
+  .sub-nav button {
+    background: none; border: none; color: var(--muted); font-size: 0.9rem; cursor: pointer;
+    padding: 14px 12px; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.2s, border-color 0.2s;
+  }
+  .sub-nav button:hover { color: var(--navy); }
+  .sub-nav button.active { color: var(--navy); border-bottom-color: var(--blue); }
+
+  /* ── SECTIONS: full-width bands, alternating white / pale blue ── */
+  .section-content > .subsection, .section-content > .contact-grid { padding: var(--s5) var(--gutter); }
+  .subsection { scroll-margin-top: calc(var(--nav-h) + 50px); }
+  .section-content > .subsection:nth-of-type(even) { background: var(--band); }
+  .subsection-divider { display: none; }
+
+  .subsection-label { font-size: var(--fs-label); font-weight: 600; color: var(--blue); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: var(--s1); }
+  .subsection h3 { font-size: var(--fs-section); margin-bottom: var(--s3); }
+  .subsection p { color: var(--muted); margin-bottom: var(--s2); max-width: 65ch; }
+  .subsection p strong, .subsection li strong { color: var(--navy); font-weight: 600; }
+  .sub-h { font-size: var(--fs-sub); margin: var(--s4) 0 var(--s2); }
+  .minor-h { font-family: var(--sans); font-size: var(--fs-body); font-weight: 600; color: var(--navy); margin: var(--s3) 0 var(--s1); }
+  .subsection h3 + .sub-h, .subsection h3 + .minor-h { margin-top: 0; }
+
+  /* Lists */
+  .check-list { list-style: none; margin: 0 0 var(--s3); max-width: 65ch; }
+  .check-list li { position: relative; padding: 10px 0 10px 22px; color: var(--muted); border-bottom: 1px solid var(--line); }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li::before { content: ''; position: absolute; left: 2px; top: 21px; width: 6px; height: 6px; background: var(--blue); }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin: 0 0 var(--s3); }
+  .week-table { width: 100%; border-collapse: collapse; font-size: var(--fs-small); background: var(--white); }
+  .week-table th { text-align: left; background: var(--navy); color: var(--white); padding: 10px 16px; font-weight: 600; }
+  .week-table td { padding: 10px 16px; border-bottom: 1px solid var(--line); color: var(--muted); vertical-align: top; }
+  .week-table td:first-child { color: var(--navy); font-weight: 600; white-space: nowrap; }
+  .coming-soon { display: inline-block; border: 1px solid var(--line); color: var(--muted); background: var(--white); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; padding: 1px 8px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 28px; margin: var(--s3) 0; }
+  .timeline::before { content: ''; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; background: var(--line); }
+  .timeline-item { position: relative; margin-bottom: var(--s4); }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-dot { position: absolute; left: -28px; top: 5px; width: 9px; height: 9px; background: var(--blue); }
+  .timeline-year { font-size: var(--fs-label); font-weight: 600; color: var(--blue); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 2px; }
+  .timeline-item h4 { font-size: var(--fs-sub); margin-bottom: 6px; }
+  .timeline-item p { margin-bottom: 0; }
+
+  /* Cards: two columns by default, three with .grid-3. An odd card out spans the row. */
+  .principles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s3); margin: var(--s3) 0; }
+  .principles-grid.grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .principles-grid:not(.grid-3) > .principle-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .principle-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s3); min-width: 0; }
+  .principle-card h4 { font-size: var(--fs-card); margin-bottom: var(--s1); }
+  .principle-card p { font-size: var(--fs-small); margin: 0; }
+  .principle-card p + p { margin-top: var(--s1); }
+  .principle-icon { display: none; }
+  .attribution { color: var(--blue) !important; font-weight: 600; }
+  .rating-note { font-size: var(--fs-small); }
+
+  /* Callouts and quotes (solid fill) */
+  .info-box { background: var(--callout); padding: var(--s3); border-radius: var(--radius); color: var(--ink); margin: var(--s3) 0; max-width: 65ch; }
+  .info-box strong { color: var(--navy); }
+  .info-box .check-list { margin: var(--s1) 0 0; }
+  .info-box .check-list li { border-bottom-color: rgba(19, 40, 74, 0.1); color: var(--ink); }
+  .quote-block { background: var(--navy); color: var(--white); padding: var(--s4); border-radius: var(--radius); font-family: var(--serif); font-size: 1.4rem; line-height: 1.5; font-style: italic; margin: var(--s3) 0; }
+  .quote-block cite { display: block; color: var(--blue-on-navy); font-family: var(--sans); font-style: normal; font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-top: var(--s2); }
+
+  /* FAQ */
+  .faq-item { border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 10px; overflow: hidden; background: var(--white); max-width: 65ch; }
+  .faq-q { width: 100%; background: var(--white); border: none; text-align: left; padding: 16px 20px; font-size: var(--fs-body); font-weight: 600; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: var(--s2); }
+  .faq-q:hover { background: var(--band); }
+  .faq-a { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s; color: var(--muted); }
+  .faq-a.open { max-height: 400px; padding: 0 20px 18px; }
+  .faq-arrow { font-size: 0.7rem; color: var(--blue); transition: transform 0.3s; }
+  .faq-arrow.open { transform: rotate(180deg); }
+
+  /* Blog cards */
+  .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s3); }
+  a.blog-card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); transition: border-color 0.2s; }
+  a.blog-card:hover { border-color: var(--blue); }
+  .blog-card-header { padding: var(--s3) var(--s3) 0; }
+  .blog-card-icon { display: none; }
+  .blog-card-header h4 { font-size: var(--fs-card); }
+  .blog-card-body { padding: var(--s1) var(--s3) var(--s3); }
+  .blog-card-body p { font-size: var(--fs-small); margin-bottom: var(--s2); }
+  .blog-tag { font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+
+  /* Pricing */
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3); margin-bottom: var(--s3); }
+  .pricing-card { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--white); display: flex; flex-direction: column; min-width: 0; }
+  .pricing-card.featured { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+  .pricing-header { background: var(--navy); color: var(--white); padding: var(--s3); }
+  .pricing-card.featured .pricing-header { background: var(--blue); }
+  .subsection .pricing-header h3 { font-family: var(--sans); font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-on-navy); margin: 0; }
+  .pricing-card.featured .pricing-header h3 { color: var(--white); }
+  .pricing-price { font-family: var(--serif); font-size: 2.4rem; margin: var(--s1) 0 0; line-height: 1.1; }
+  .pricing-per { font-size: var(--fs-small); opacity: 0.75; }
+  .pricing-features { padding: var(--s2) var(--s3); list-style: none; flex: 1; }
+  .pricing-features li { padding: 8px 0 8px 18px; position: relative; border-bottom: 1px solid var(--line); font-size: var(--fs-small); color: var(--muted); }
+  .pricing-features li:last-child { border-bottom: none; }
+  .pricing-features li::before { content: ''; position: absolute; left: 0; top: 17px; width: 6px; height: 6px; background: var(--blue); }
+  .pricing-cta { padding: 0 var(--s3) var(--s3); }
+  .pricing-cta button { width: 100%; padding: 12px; background: var(--navy); color: var(--white); border: none; font-size: 1rem; font-weight: 600; cursor: pointer; border-radius: var(--radius); transition: background 0.2s; }
+  .pricing-card.featured .pricing-cta button { background: var(--blue); }
+  .pricing-cta button:hover { background: var(--ink); }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: var(--s5); align-items: start; }
+  .contact-info h3 { font-size: var(--fs-section); margin-bottom: var(--s3); }
+  .contact-detail { position: relative; padding: 0 0 var(--s2) 22px; color: var(--muted); }
+  .contact-detail::before { content: ''; position: absolute; left: 2px; top: 11px; width: 6px; height: 6px; background: var(--blue); }
+  .contact-detail > span:first-child { display: none; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 6px; color: var(--navy); }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px 13px; border: 1px solid var(--line); border-radius: var(--radius); font-family: var(--sans); font-size: 1rem; color: var(--ink); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(31, 78, 140, 0.12); }
+  .form-group textarea { height: 120px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2); }
+  .submit-btn { background: var(--navy); color: var(--white); border: none; padding: 14px 36px; font-size: 1rem; font-weight: 600; cursor: pointer; border-radius: var(--radius); transition: background 0.2s; width: 100%; }
+  .submit-btn:hover { background: var(--blue); }
+  .success-msg, .error-msg { display: none; padding: 14px; border-radius: var(--radius); margin-top: 14px; text-align: center; font-size: var(--fs-small); }
+  .success-msg { background: #e7f4ea; border: 1px solid #9ccfa8; color: #24603a; }
+  .error-msg { background: #fbe9e9; border: 1px solid #eba9a9; color: #9b2c2c; }
+
+  /* Lichess link button */
+  .game-link { display: inline-block; background: var(--blue); color: var(--white); padding: 12px 22px; border-radius: var(--radius); text-decoration: none; font-weight: 600; transition: background 0.2s; margin-top: var(--s1); }
+  .game-link:hover { background: var(--navy); color: var(--white); }
+
+  /* Footer */
+  footer { background: var(--navy); color: rgba(255, 255, 255, 0.55); text-align: center; padding: var(--s3); font-size: 0.875rem; }
+  footer span { color: var(--white); }
+
+  /* Skip link */
+  .skip-link { position: absolute; top: -48px; left: 16px; background: var(--blue); color: var(--white); padding: 8px 16px; border-radius: 0 0 var(--radius) var(--radius); font-size: 0.9rem; z-index: 999; transition: top 0.2s; text-decoration: none; }
+  .skip-link:focus { top: 0; }
+
+  /* ── TABLET ── */
+  @media (max-width: 900px) {
+    .principles-grid.grid-3, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .principles-grid.grid-3 > .principle-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .pricing-grid > .pricing-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  }
+
+  /* ── PHONE ── */
+  @media (max-width: 640px) {
+    :root { --fs-hero: 2.4rem; --fs-page: 2rem; --fs-section: 1.6rem; --fs-sub: 1.2rem; --s5: 48px; --s6: 64px; --gutter: 20px; }
+    nav { position: static; height: auto; padding: 12px 16px; flex-direction: column; gap: 6px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; }
+    .nav-links button { font-size: 0.85rem; padding: 6px 8px; }
+    .nav-dropdown-menu { left: 50%; transform: translateX(-50%); }
+    .sub-nav { top: 0; padding: 0 8px; }
+    .subsection { scroll-margin-top: 56px; }
+    .hero, .home-about { padding-left: 20px; padding-right: 20px; }
+    .hero-stats { grid-template-columns: repeat(2, auto); row-gap: var(--s3); }
+    .stat:nth-child(2) { border-right: none; margin-right: 0; }
+    .home-about-inner, .home-cards, .contact-grid, .form-row,
+    .principles-grid, .principles-grid.grid-3, .pricing-grid, .blog-grid { grid-template-columns: 1fr; }
+    .quote-block { padding: var(--s3); font-size: 1.2rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .page { animation: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">Suhaas Narayanan</div>
+  <div class="nav-links">
+    <button onclick="showPage('home')" class="active" id="nav-home">Home</button>
+    <button onclick="showPage('journey')" id="nav-journey">My Journey</button>
+    <button onclick="showPage('philosophy')" id="nav-philosophy">Philosophy</button>
+
+    <!-- ══ DROPDOWN: Improvement ══
+         To add a menu item: copy one of the <button> lines below and
+         change the last word in goToSub(...) to match a subsection id. -->
+    <div class="nav-dropdown" id="dd-improvement">
+      <button class="nav-dropdown-toggle" id="nav-improvement" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown(event)">Improvement<span class="caret">▼</span></button>
+      <div class="nav-dropdown-menu" role="menu">
+        <button role="menuitem" onclick="goToSub('improvement','start')">Start Here</button>
+        <button role="menuitem" onclick="goToSub('improvement','areas')">Training Areas</button>
+        <hr class="menu-divider">
+        <button role="menuitem" onclick="goToSub('improvement','level')">What to Do at Your Level</button>
+        <button role="menuitem" onclick="goToSub('improvement','review')">Game Review</button>
+        <button role="menuitem" onclick="goToSub('improvement','openings')">Opening Study</button>
+        <button role="menuitem" onclick="goToSub('improvement','prep')">Prep Work</button>
+        <button role="menuitem" onclick="goToSub('improvement','communities')">Communities</button>
+        <hr class="menu-divider">
+        <button role="menuitem" onclick="goToSub('improvement','resources')">Resources &amp; Reviews</button>
+        <button role="menuitem" onclick="goToSub('improvement','upcoming')">Coming Soon</button>
+      </div>
+    </div>
+
+    <button onclick="showPage('coaching')" id="nav-coaching">Coaching</button>
+    <button onclick="showPage('contact')" id="nav-contact">Contact</button>
+  </div>
+</nav>
+
+<!-- ══ HOME ══ -->
+<div id="main-content">
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">National Master · 20+ Years of Chess</div>
+      <h1>Suhaas Narayanan.<br><em>Chess Coach & NM.</em></h1>
+      <p>I'm a chess enthusiast, player, director, and coach. This site reflects on what worked — and what didn't — on my journey to 2200 USCF, in hopes that it can help others on their own chess paths.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('coaching')">View Coaching Packages</button>
+        <button class="btn-secondary" onclick="showPage('journey')">My Story</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years Playing</div></div>
+        <div class="stat"><div class="stat-num">2200+</div><div class="stat-label">USCF Rating</div></div>
+        <div class="stat"><div class="stat-num">NM</div><div class="stat-label">National Master</div></div>
+        <div class="stat"><div class="stat-num">5.0★</div><div class="stat-label">Student Rating</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-about">
+    <div class="home-about-inner">
+      <div>
+        <h2>About This Site</h2>
+        <p>This is a passion project born from my own long road to National Master. I want to share my steps and missteps — openly and honestly — so others can learn from them.</p>
+        <p>Primarily aimed at chess players and improvers of all levels. Take what's useful, skip what isn't. Everything here is free.</p>
+        <p><em>"Rated Excellent ★★★★★ 5.0/5.0"</em></p>
+      </div>
+      <div class="home-cards">
+        <div class="home-card"><h4>Reflection</h4><p>It's been a long journey, and I'm grateful for every part of it.</p></div>
+        <div class="home-card"><h4>A Guide</h4><p>Tips and tricks I took a while to learn, shared here to pay it forward.</p></div>
+        <div class="home-card"><h4>For Improvers</h4><p>Aimed at players who want to get better in various aspects of the game.</p></div>
+        <div class="home-card"><h4>Fun</h4><p>This website is a passion project, so I hope you enjoy it!</p></div>
+      </div>
+    </div>
+  </div>
+  <footer>© 2026 <span>Suhaas Narayanan</span> · All rights reserved</footer>
+</div>
+
+<!-- ══ JOURNEY ══
+     Text adapted from your Google Sites draft ("Narrative"). -->
+<div class="page" id="page-journey">
+  <div class="section-hero">
+    <h2>My <span>Chess Journey</span></h2>
+    <p>My steps and missteps in reaching 2200 USCF, a lifetime goal.</p>
+  </div>
+
+  <div class="sub-nav" id="subnav-journey">
+    <button class="active" onclick="scrollToSub('journey','early',event)">Early Years</button>
+    <button onclick="scrollToSub('journey','serious',event)">The Comeback</button>
+    <button onclick="scrollToSub('journey','push',event)">The Final Push</button>
+    <button onclick="scrollToSub('journey','training',event)">What I'd Change</button>
+    <button onclick="scrollToSub('journey','games',event)">My 60 Games</button>
+  </div>
+
+  <div class="section-content">
+
+    <div class="subsection" id="sub-journey-early">
+      <div class="subsection-label">Chapter 1</div>
+      <h3>Chess When I Was a Kid</h3>
+      <p>I started playing at 4, when my parents brought me into the game. For most of elementary school I was one of the top-ranked players my age in the country, and in third grade I was in the top 5 nationally.</p>
+      <p>That looks great on paper. From the inside, I was an anxious and often lonely kid carrying a lot of competitive pressure. By middle school I had burned out. I put that energy into STEM and quiz competitions instead: Science Bowl, Ocean Bowl, History Bowl, Knowledge Bowl and Quiz Bowl. By high school I had more or less retired from chess.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Age 4</div>
+          <h4>First Moves</h4>
+          <p>My parents introduced me to chess, and it stuck.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Third Grade</div>
+          <h4>Top 5 Nationally</h4>
+          <p>Ranked among the top players my age in the US. Lots of results, lots of pressure.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Middle &amp; High School</div>
+          <h4>Burnout</h4>
+          <p>I stepped away from chess and found new competitions to love. Looking back, the break was probably necessary.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-journey-serious">
+      <div class="subsection-label">Chapter 2</div>
+      <h3>The Comeback</h3>
+      <p>I came back during COVID, in my senior year of high school. <em>The Queen's Gambit</em> and the streaming boom had everyone talking about chess, and friends started asking me to play. I began on Lichess, joined my college chess club, and during some time off after sophomore year I rediscovered opening study through Hanging Pawns. My early repertoire was the Trompowsky, Exchange lines against d5 structures, the Tarrasch and the Hyper-Accelerated Dragon.</p>
+      <p>The biggest factor in my comeback was my hometown chess community. My friends ran the Gryphon Games, a Saturday tournament every other week, and I played in them constantly. I won a lot of them, usually while playing down. That's also where my style settled into what it is today: calm and controlled. I'll admit I also picked up a serious Chessable course habit along the way.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Back Home</div>
+          <h4>Top of the State</h4>
+          <p>I became one of the top players in my state, went on a roughly 37-game undefeated streak over the board, and trained with the Serious Chess Improvers Discord. My rating peaked at 2146.</p>
+        </div>
+      </div>
+      <div class="info-box">
+        <strong>So why didn't my rating climb faster?</strong>
+        <ul class="check-list">
+          <li><strong>Few strong events.</strong> My state didn't have many strong or regular tournaments.</li>
+          <li><strong>Playing down.</strong> Winning against lower-rated players gained me very few points.</li>
+          <li><strong>Avoiding tactics.</strong> I dodged tactics training until the Woodpecker Method showed me it could be fun.</li>
+          <li><strong>Life.</strong> School and other priorities came first, as they should.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-journey-push">
+      <div class="subsection-label">Chapter 3</div>
+      <h3>The Final Push to NM</h3>
+      <p>Back at university, chess slid down my priority list. A rough winter break and a bad Liberty Bell Open dropped me below 2100, after I had peaked at 2146. That was my low point, and it forced me to rethink how I trained.</p>
+      <h4 class="sub-h">What I changed</h4>
+      <ul class="check-list">
+        <li><strong>Finished the Woodpecker Method.</strong> Tactics finally stopped being something I avoided.</li>
+        <li><strong>Narrowed my repertoire.</strong> I dropped the Catalan for the Nimzo and the QGD Exchange, and moved to a simpler, system-based repertoire as Black.</li>
+        <li><strong>Focused on one or two things at a time</strong> instead of trying to fix everything at once.</li>
+        <li><strong>Worked through <em>Perfect Your Chess</em></strong> and played training games with lots of review.</li>
+        <li><strong>Played for wins, not perfect games,</strong> and got serious about time management.</li>
+      </ul>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Summer</div>
+          <h4>Shaking Off the Rust</h4>
+          <p>A local summer tournament started rusty and finished with strong wins, taking me from 2084 back into the 2100s.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Philly Open</div>
+          <h4>My Best Event</h4>
+          <p>A draw, then three straight wins (two of them near-perfect games against 2000+ players), then a final-round draw with GM Maxim Dlugy.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Denver</div>
+          <h4>Invitational Wins</h4>
+          <p>Beat a 2000-rated player and FM Gunnar Andersen at an invitational event.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2204</div>
+          <h4>National Master</h4>
+          <p>I left for Penn at 2187 and played regular local quads, then got stuck at 2199.28. Finally I won a first-round game against an 1890, withdrew, and finished at 2204.</p>
+        </div>
+      </div>
+      <p>I'm grateful for every training partner, opponent, coach and friend who made it worth it. NM really is the friends we made along the way.</p>
+      <div class="quote-block">
+        "It's a good day to be proud of how far you've come."
+        <cite>— Suhaas Narayanan, NM</cite>
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-journey-training">
+      <div class="subsection-label">Chapter 4</div>
+      <h3>What I'd Do Differently, Warts and All</h3>
+      <p>This isn't a recommendation. For that, see the <a href="#improvement/level" onclick="goToSub('improvement','level'); return false;">Improvement guide</a>. This is an honest look at the path I actually took. My biggest regret is that I went too far in one direction, burned out, and then came up short in my weakest areas: endgames and tactics.</p>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <h4>Openings (Too Much)</h4>
+          <p>Fun, but not always a good return on time. I bought a lot of courses and switched lines often. Narrowing my repertoire did more for me than adding to it.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Tactics (Avoided)</h4>
+          <p>I dodged them for years. The Woodpecker Method changed that by showing me tactics training can actually be fun.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Endgames (Neglected)</h4>
+          <p>One of my weakest areas, and one that cost me points I didn't need to lose.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Community (The Real Secret)</h4>
+          <p>The most important factor in my comeback. Find people to play, review and talk chess with.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Training Games &amp; Review</h4>
+          <p>The thing that helped most in the final push. Play serious games and actually review them. <a href="#improvement/review" onclick="goToSub('improvement','review'); return false;">Here's how I do it.</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-journey-games">
+      <div class="subsection-label">Chapter 5</div>
+      <h3>My 60 Favorite Games</h3>
+      <p>Here are some of my favorite games from across this chess journey. Not quite 60 games yet though. Wins, losses, brilliancies, blunders - all of it shaped my game.</p>
+      <a class="game-link" href="https://lichess.org/study/oAqAo3ZN" target="_blank">♟ View My 60 Favorite Games on Lichess</a>
+    </div>
+
+  </div>
+  <footer>© 2026 <span>Suhaas Narayanan</span> · All rights reserved</footer>
+</div>
+
+<!-- ══ PHILOSOPHY ══ -->
+<div class="page" id="page-philosophy">
+  <div class="section-hero">
+    <h2>Learning <span>Philosophy</span></h2>
+    <p>How I think about chess improvement — and what I've learned teaching others.</p>
+  </div>
+
+  <div class="sub-nav" id="subnav-philosophy">
+    <button class="active" onclick="scrollToSub('philosophy','principles',event)">Core Principles</button>
+    <button onclick="scrollToSub('philosophy','profile',event)">Your Chess Profile</button>
+    <button onclick="scrollToSub('philosophy','faq',event)">FAQ</button>
+    <button onclick="scrollToSub('philosophy','blog',event)">Blog Posts</button>
+  </div>
+
+  <div class="section-content">
+
+    <div class="subsection" id="sub-philosophy-principles">
+      <div class="subsection-label">The Foundation</div>
+      <h3>Core Principles</h3>
+      <div class="principles-grid grid-3">
+        <div class="principle-card">
+          <h4>Understand, Don't Memorize</h4>
+          <p>Improvement comes from grasping the <em>why</em> behind each move. I teach principles so you can reason through positions you've never seen before.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Learn from Every Game</h4>
+          <p>Your losses are your greatest teachers. Analyze your own games without an engine first — this builds the critical thinking that creates improvement.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Endgames First</h4>
+          <p>Most players neglect endgames. I prioritize them because they reveal the true nature of chess: piece activity, king power, and precision. These are fundamentals that flow into every phase.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Consistent, Deliberate Practice</h4>
+          <p>An hour of focused study beats five hours of casual play. I help students build routines that make improvement sustainable over the long run.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Tactics, Tactics, Tactics</h4>
+          <p>Chess is calculation. No matter your level, a daily tactics habit is the highest-ROI training activity there is.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Do What Makes Chess Fun</h4>
+          <p>This is the one takeaway I want for everyone. A rating goal is not an end in itself. You won't hit your goal if you hate the process — you'll just quit.</p>
+        </div>
+      </div>
+      <div class="quote-block">
+        "Improving at chess is about work ethic, inspiration, and optimism. Your approach reflects who you are and the values you live by."
+        <cite>— Suhaas Narayanan, NM</cite>
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-philosophy-profile">
+      <div class="subsection-label">Know Thyself</div>
+      <h3>Your Chess Player Profile</h3>
+      <p>Some say the whole of life is experiencing yourself. It's useful to understand who you are and what you want to get out of chess. Chess is a marathon. There may be people in their final sprint, but it's a long and hard path even then.</p>
+      <p>Before diving into a training plan, consider these questions honestly:</p>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <h4>Who Are You?</h4>
+          <p>Your occupation, time commitment, life stage, and outside priorities all shape how much you can realistically invest in chess improvement.</p>
+        </div>
+        <div class="principle-card">
+          <h4>What Is Chess to You?</h4>
+          <p>Hobby? Obsession? Time-killer? What do you currently get out of chess — and what do you <em>want</em> to get out of it? Be honest.</p>
+        </div>
+        <div class="principle-card">
+          <h4>What Type of Player Are You?</h4>
+          <p>Sharp and attacking, or calm and positional? Booked up or intuitive? Lots of online blitz, or OTB classical only? Know thyself.</p>
+        </div>
+        <div class="principle-card">
+          <h4>What Drives You?</h4>
+          <p>Identify what keeps you motivated, what causes burnout, and where chess sits in the hierarchy of your life. This shapes everything.</p>
+        </div>
+      </div>
+      <div class="info-box">
+        <strong>My Example:</strong> I'm a calm, positional player who is heavily booked up on openings. I play a mix of bullet and OTB classical. Chess fluctuates between hobby and obsession for me. What I get out of chess is fun, truth, and beauty.
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-philosophy-faq">
+      <div class="subsection-label">Common Questions</div>
+      <h3>Frequently Asked Questions</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Who are you? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">I'm a chess enthusiast, player, director, and coach. This website is a way of reflecting on what worked and didn't work for me, in hopes that it can reach others. I want this to be generally comprehensive, and I'll section off subjects to make things easier to digest.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Who should be reading this? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">Primarily aimed at chess players and more specifically improvers. Anyone who's interested in chess should enjoy at least some parts of this guide though. Feel free to skim through and take what you need from this if anything's helpful.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Why are you the authority? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">I'm not! I'd like as much public discussion on this in order to fine-tune it and make it useful. I do have some credibility, having recently achieved NM and being a chess player since I was 4. This means I have nearly two decades of experience across different life stages. I've also digested a variety of information from different sources about improvement and have my own takes on what works and what doesn't.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Can I trust this? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">Take everything with a grain of salt and in consideration with your own common sense and the word of others. This largely reflects my opinion and I'll reference when it's something the broader chess community supports. Think of chess literature like academia — everyone does their own research and presents it for feedback. See what works for you.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Is this free? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">Yes — no memberships, no paywalls. I benefitted from a variety of free resources online and I'd like to contribute to that. The guide is completely free. Coaching services are separate and listed on the Coaching page.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Will this make a difference? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">I sure hope so! Even if it's more security in your own beliefs than mine, I think it's important to create dialogue and push on what is known vs. unknown in chess improvement. If there's at least one thing you can take away, that's a win.</div>
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-philosophy-blog">
+      <div class="subsection-label">More Ideas</div>
+      <h3>Blog Posts</h3>
+      <p>In-depth pieces on chess, improvement, and the journey. Click any post to read more.</p>
+      <div class="blog-grid">
+        <a class="blog-card" href="blog/the-final-push.html">
+          <div class="blog-card-header">
+            <h4>The Final Push</h4>
+          </div>
+          <div class="blog-card-body">
+            <p>What actually contributed to reaching NM? A reflection on the specific changes and mindset shifts that made the difference in the end.</p>
+            <span class="blog-tag">Improvement</span>
+          </div>
+        </a>
+        <a class="blog-card" href="blog/openings.html">
+          <div class="blog-card-header">
+            <h4>Openings: More or Less?</h4>
+          </div>
+          <div class="blog-card-body">
+            <p>Opening study is fun — but is it the best use of your time? My honest take on where openings fit in a well-rounded training plan.</p>
+            <span class="blog-tag">Openings</span>
+          </div>
+        </a>
+        <a class="blog-card" href="blog/endgames-first.html">
+          <div class="blog-card-header">
+            <h4>Endgames First</h4>
+          </div>
+          <div class="blog-card-body">
+            <p>The most neglected phase of the game is also the most instructive. Why I think endgame study should come before everything else.</p>
+            <span class="blog-tag">Endgames</span>
+          </div>
+        </a>
+        <a class="blog-card" href="blog/tactics-habit.html">
+          <div class="blog-card-header">
+            <h4>Building a Tactics Habit</h4>
+          </div>
+          <div class="blog-card-body">
+            <p>Tactics are the highest-ROI training activity at almost every level. Here's how to build a daily habit that actually sticks.</p>
+            <span class="blog-tag">Tactics</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <footer>© 2026 <span>Suhaas Narayanan</span> · All rights reserved</footer>
+</div>
+
+<!-- ══ IMPROVEMENT ══
+     Text adapted from your Google Sites draft (Motivation, Who do I trust?,
+     What Should I Do at My Level?, Opening Study, Prep Work, Communities,
+     Appendix Z) and your "My Resources" doc (training areas, game review,
+     journaling, tournament prep, links). Unwritten topics are under "Coming Soon". -->
+<div class="page" id="page-improvement">
+  <div class="section-hero">
+    <h2>Chess <span>Improvement</span></h2>
+    <p>What worked for me, what didn't, and where I'd point you instead.</p>
+  </div>
+
+  <div class="sub-nav" id="subnav-improvement">
+    <button class="active" data-sub="start" onclick="scrollToSub('improvement','start',event)">Start Here</button>
+    <button data-sub="areas" onclick="scrollToSub('improvement','areas',event)">Training Areas</button>
+    <button data-sub="level" onclick="scrollToSub('improvement','level',event)">Your Level</button>
+    <button data-sub="review" onclick="scrollToSub('improvement','review',event)">Game Review</button>
+    <button data-sub="openings" onclick="scrollToSub('improvement','openings',event)">Openings</button>
+    <button data-sub="prep" onclick="scrollToSub('improvement','prep',event)">Prep Work</button>
+    <button data-sub="communities" onclick="scrollToSub('improvement','communities',event)">Communities</button>
+    <button data-sub="resources" onclick="scrollToSub('improvement','resources',event)">Resources</button>
+    <button data-sub="upcoming" onclick="scrollToSub('improvement','upcoming',event)">Coming Soon</button>
+  </div>
+
+  <div class="section-content">
+
+    <div class="subsection" id="sub-improvement-start">
+      <div class="subsection-label">Overview</div>
+      <h3>Start Here</h3>
+      <p>I came back to chess wanting to reach NM for fun and for pride. This guide is part reflection and part giving back. It lays out the structure and methods I used. The ideas are mostly my own unless I cite someone, and I want it to be fun to read.</p>
+      <div class="info-box">
+        <strong>If you take one thing away:</strong> do what makes chess fun for you. A rating goal shouldn't be an end in itself. I don't regret the quirks that made the game fun for me, even the ones that weren't "optimal."
+      </div>
+      <h4 class="sub-h">Who should you trust?</h4>
+      <p>There are no chess gods and no scripture. Improvement advice works more like academia: people test ideas and share what they found. Try what's commonly recommended, keep what works for you, and drop what doesn't. That includes everything on this site.</p>
+      <p>It's also worth spending ten minutes on your <a href="#philosophy/profile" onclick="goToSub('philosophy','profile'); return false;">Chess Player Profile</a> before you pick a plan.</p>
+    </div>
+
+    <div class="subsection" id="sub-improvement-areas">
+      <div class="subsection-label">The Big Picture</div>
+      <h3>The Areas of Chess Training</h3>
+      <p>Chess training takes many forms. These are the core areas I've found, and each one has more specific skills to work on as you progress. There's a lot to improve, which is both daunting and exciting: there's always something new to learn.</p>
+      <p>The good news is that you rarely get weaker in the short term (one to six months). You just get rusty or less sharp. Thanks to muscle memory, regaining your form is much easier than building it the first time.</p>
+      <div class="info-box">
+        <strong>My daily routine:</strong> a few tactics (I recommend at least 5 <a href="https://lichess.org/training" target="_blank">Lichess puzzles</a> a day to stay sharp), a rapid game, and a review of that game. If you only do one thing, do this.
+      </div>
+      <div class="principles-grid grid-3">
+        <div class="principle-card">
+          <h4>Openings</h4>
+          <p>Setting a repertoire (White, Black, sidelines), learning the ideas and lines, then practice games and review.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Middlegames</h4>
+          <p>Strategy and a toolkit of positional and tactical ideas. Calculation: tactics, combinations and visualization. Then practice positions and puzzles.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Endgames</h4>
+          <p>Both practical and theoretical endgames, plus practice games and review.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Psychology</h4>
+          <p>Mindset, your philosophy of the game and mindfulness at the board.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Decision Making</h4>
+          <p>Frameworks for choosing a move, and scenario analysis when there's no clear answer.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Resources</h4>
+          <p>Knowing how to use an engine, opening files, books, videos and homework. See <a href="#improvement/resources" onclick="goToSub('improvement','resources'); return false;">Resources</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-improvement-level">
+      <div class="subsection-label">How to Train</div>
+      <h3>What Should I Do at My Level?</h3>
+      <p>I'm not going to reinvent the wheel here. For a level-by-level training plan, I point people to <a href="https://www.chessdojo.club" target="_blank">ChessDojo</a>. It's a training program covering ratings from 0 to 2500, with free and paid tiers, founded by GM Jesse Kraai, IM Kostya Kavutskiy and IM David Pruess. Its Discord is very active, with training games and book clubs.</p>
+      <p>What I like about it is the focus on fundamentals:</p>
+      <ul class="check-list">
+        <li><strong>Play lots of games.</strong> Serious games are where improvement starts.</li>
+        <li><strong>Review without an engine first.</strong> Work out what happened yourself before checking.</li>
+        <li><strong>Analyze together.</strong> Reviewing games with other people catches what you'd miss alone.</li>
+        <li><strong>Cover all the bases.</strong> Openings, middlegames, endgames, tactics and calculation all get time.</li>
+      </ul>
+      <div class="info-box">
+        <strong>Learn from my mistake:</strong> I went too far in one direction, burned out, and then came up short in my weakest areas, endgames and tactics. A balanced plan would have saved me a lot of time.
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-improvement-review">
+      <div class="subsection-label">My Favorite Training Method</div>
+      <h3>How I Review Games</h3>
+      <p>After any longer game (10+ minutes), add it to a <a href="https://lichess.org/study" target="_blank">Lichess study</a>. I keep all my training games together in one study so I can see my progress and spot patterns over time. I also add each game to my opening file for that line (more on that under <a href="#improvement/openings" onclick="goToSub('improvement','openings'); return false;">Openings</a>).</p>
+      <p>To track results over time, I use a <a href="https://docs.google.com/spreadsheets/d/1BPghNkw5zuv0cW8Yi_REqEJH5LXP_z4WmbX5KVlIFSI/edit?usp=sharing" target="_blank">self-analysis spreadsheet</a> for openings and for tournament and training games. Feel free to make a copy.</p>
+      <h4 class="sub-h">1. Annotate first, without an engine</h4>
+      <ul class="check-list">
+        <li><strong>Write down your thoughts move by move.</strong> Keep notes brief and to the point, like "expected 7…Ng4 but he went 7…h5."</li>
+        <li><strong>Add the key variations</strong> you considered and what you thought of them.</li>
+      </ul>
+      <h4 class="sub-h">2. Then check with the engine</h4>
+      <ul class="check-list">
+        <li><strong>Request a computer analysis</strong> on Lichess to see your accuracy and blunder count. It's the Lichess version of Chess.com's Game Review.</li>
+        <li><strong>Compare it with your notes.</strong> Where the engine disagreed, write down what it found and why you missed it. For example: "Engine found Nxe5! but I thought there wasn't enough compensation."</li>
+      </ul>
+      <h4 class="sub-h">3. Don't over-rely on the engine</h4>
+      <ul class="check-list">
+        <li><strong>It's a fact checker.</strong> It can give useful insight, but don't take its first word for granted. If a line feels funky, play it further until it shows something concrete.</li>
+        <li><strong>Ignore tiny differences.</strong> A gap of 0.3 or less isn't worth your time.</li>
+      </ul>
+      <h4 class="sub-h">Tournament games</h4>
+      <p>Follow the same process, but go into more detail. You'll have calculated many more lines and had many more thoughts during a tournament game, so get them down. Don't be tempted to open the engine before you annotate. Gukesh famously didn't use one until after he became a GM.</p>
+      <h4 class="sub-h">Keep a tournament journal</h4>
+      <p>During downtime between rounds, write about your mental state, your results, how you feel about your play, your lunch, the nice people you met, whatever comes to mind. It helps in three ways:</p>
+      <ul class="check-list">
+        <li><strong>It keeps things impersonal.</strong> You see your results more objectively, which reduces tilt.</li>
+        <li><strong>It gives you real downtime</strong> instead of worrying about the next game.</li>
+        <li><strong>It's fascinating to look back on.</strong> Sometimes the engine says you won a smooth game while your journal says you were sweating at the board, unsure your attack would work.</li>
+      </ul>
+    </div>
+
+    <div class="subsection" id="sub-improvement-openings">
+      <div class="subsection-label">The First Moves</div>
+      <h3>Opening Study</h3>
+      <p>Before picking openings, it helps to know what kind of positions you enjoy. Here's the vocabulary I use:</p>
+      <div class="table-wrap"><table class="week-table">
+        <thead><tr><th>Profile</th><th>What it means</th></tr></thead>
+        <tbody>
+          <tr><td>Closed</td><td>Locked pawn chains and slow maneuvering</td></tr>
+          <tr><td>Semi-open</td><td>One side's file opens early, so the game is unbalanced from the start</td></tr>
+          <tr><td>Open</td><td>Early pawn trades, open lines and active pieces</td></tr>
+          <tr><td>Sharp</td><td>Concrete, double-edged and tactical</td></tr>
+          <tr><td>Positional</td><td>Structure and long-term plans matter more than forcing lines</td></tr>
+          <tr><td>Hypermodern</td><td>Control the center from a distance, then strike at it</td></tr>
+          <tr><td>Classical</td><td>Occupy the center directly with pawns</td></tr>
+          <tr><td>System</td><td>The same setup against almost anything</td></tr>
+          <tr><td>Gambit</td><td>Material for initiative</td></tr>
+          <tr><td>Reversed</td><td>A known Black opening played as White with an extra tempo</td></tr>
+          <tr><td>Symmetrical</td><td>Both sides mirror each other's setup</td></tr>
+        </tbody>
+      </table></div>
+      <p>For what it's worth, I dislike symmetrical positions and gravitate toward classical openings, systems and positional lines.</p>
+      <h4 class="sub-h">Learning a new opening</h4>
+      <ul class="check-list">
+        <li><strong>Test the waters.</strong> Watch videos, read something short, browse the Lichess masters database, or try a free Chessable "Short &amp; Sweet" course. Check whether it gets you positions you actually want to play.</li>
+        <li><strong>Learn the main ideas.</strong> A coach can explain them quickly. My students ask me in a lesson, and I send files to study on their own time.</li>
+        <li><strong>Then commit.</strong> Give an opening a fair shot before switching, and write down why you like or dislike it.</li>
+        <li><strong>Don't min-max.</strong> You'll play better in positions you enjoy than in the "objectively best" line.</li>
+      </ul>
+      <h4 class="sub-h">Keep opening files</h4>
+      <p>After each longer game, add it to your opening file for that line, not just your training-games study. That way your comments and the common ideas sit right next to your real games. If I play a 10-minute game in the 7.g4 Semi-Slav, it goes in both places. Then I check where I went wrong and review the relevant lines, so either they don't out-prep me again or I go in more confident next time.</p>
+      <h4 class="sub-h">The week before a tournament</h4>
+      <p>Brush up on your lines. If you have a Chessable course, run through its quick review for each system you play. It's one of the best ways to feel confident in your repertoire, because no other area improves as quickly in a week. Still keep up tactics and other training so you stay sharp.</p>
+    </div>
+
+    <div class="subsection" id="sub-improvement-prep">
+      <div class="subsection-label">Going Deeper</div>
+      <h3>Prep Work and Process</h3>
+      <p>Below NM, I'd rely on courses for your actual lines. Building your own prep can eat a lot of time without making you play better.</p>
+      <ul class="check-list">
+        <li><strong>Tools.</strong> ChessBase is the gold standard, but I reached NM using Lichess Studies. They work much like ChessBase but are completely free, shareable and editable in real time. HIARCS is a good option on Mac, and chessdb is useful for engine evaluations (use it with care).</li>
+        <li><strong>Process.</strong> Combine a strong engine, the masters database and your own brain.</li>
+      </ul>
+      <h4 class="sub-h">Picking a prep style</h4>
+      <p>I think about prep as a 2×2: ambitious or solid, mainline or offbeat. Choose the quadrant that fits the situation, for example a game you must win.</p>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <h4>Ambitious + Offbeat</h4>
+          <p>Highest risk and reward. This is the modern engine-prep approach, like Nxc6!? in the Accelerated Dragon.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Ambitious + Mainline</h4>
+          <p>Live and die by the sword, Fischer and Kasparov style.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Solid + Mainline</h4>
+          <p>Just get a game, like Seirawan's English.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Solid + Offbeat</h4>
+          <p>Get a playable position and outplay them later. This is the typical club player's profile, and it described my old Hyper-Accelerated Dragon.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-improvement-communities">
+      <div class="subsection-label">Find Your People</div>
+      <h3>Chess Communities</h3>
+      <p>Your chess community is simply the people you do chess with, and it's the single most important factor in my own comeback. Find one through a Google search, a local club, tournaments or pub chess.</p>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <h4>Online, Free</h4>
+          <p><strong>Serious Chess Improvers</strong>, a Discord full of 2000+ OTB players, many of them titled. Also <strong>ChessDojo</strong>, <strong>Chess.com</strong> and <strong>Lichess</strong>.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Online, Paid</h4>
+          <p><strong>Killer Chess Training</strong> and <strong>Pro Chess Training</strong>. The Moon Club is another one worth knowing about.</p>
+        </div>
+      </div>
+      <p>I don't post Discord invite links here, but each community is easy to find with a quick search.</p>
+    </div>
+
+    <div class="subsection" id="sub-improvement-resources">
+      <div class="subsection-label">Further Reading</div>
+      <h3>Resources</h3>
+      <h4 class="sub-h">Where to play and train</h4>
+      <ul class="check-list">
+        <li><strong><a href="https://lichess.org" target="_blank">Lichess</a>:</strong> completely free. Unlimited <a href="https://lichess.org/training" target="_blank">puzzles</a> with lots of themes if you get bored of the usual ones, plus <a href="https://lichess.org/study" target="_blank">studies</a> for building your own database and browsing free public lessons. Public studies are especially good for drilling specific positions, like rook endgames.</li>
+        <li><strong><a href="https://www.chess.com" target="_blank">Chess.com</a>:</strong> some features need a paid membership, which I don't think is necessary. If you already pay, its lessons from world-class coaches cover lots of topics and are usually high quality.</li>
+        <li><strong><a href="https://listudy.org" target="_blank">Listudy</a>:</strong> more free tactics training.</li>
+        <li><strong><a href="https://www.chessable.com" target="_blank">Chessable</a>:</strong> digital courses from world-class authors that make it easy to train and follow the comments. Full courses cost money, but up to five "Short &amp; Sweet" opening courses are free per account. They're my top pick for figuring out which openings you like.</li>
+      </ul>
+      <h4 class="sub-h">Chess media</h4>
+      <p>Watch a wide variety of chess content that interests you, some for fun and some for serious study. I'm a huge fan of <a href="https://www.youtube.com/@DanielNaroditskyGM" target="_blank">Daniel Naroditsky</a>: he's very educational and shares his passion for the game, and his speedruns show how a top GM thinks. The <a href="https://www.youtube.com/@uschessschool" target="_blank">US Chess School</a> lectures are advanced but very good. I also enjoy recaps of top tournaments and following the pro scene, and there's plenty of short-form content if that's more your speed.</p>
+
+      <h4 class="sub-h">My Chessable course reviews</h4>
+      <p>I have a Chessable habit, with courses on openings, middlegames, calculation, tactics and endgames. Here are honest notes on the ones I've used; the rest are on my shelf and I'll add notes as I go. If you're thinking of buying a full course, my students ask me first and we find the right one together.</p>
+      <h4 class="minor-h">1.e4 for White</h4>
+      <ul class="check-list">
+        <li><strong>Gajewski, e4 Parts 1–2:</strong> a Spanish repertoire that's ambitious but solid.</li>
+        <li><strong>Giri, e4:</strong> I've heard good things.</li>
+        <li><strong>Wesley So, e4:</strong> solid, aiming for slight edges.</li>
+        <li><strong>Kramnik, <em>Understanding Chess Openings</em>:</strong> my reference "bible" whenever I expand a repertoire.</li>
+      </ul>
+      <h4 class="minor-h">1.d4 for White</h4>
+      <ul class="check-list">
+        <li><strong>Swiercz, Parts 1–2:</strong> my chess bible for a while. It covers the Nimzo, KID and Grünfeld, then the Exchange and slow Slav.</li>
+        <li><strong>Srinath, Catalan:</strong> great, though I didn't like the fianchetto lines against the Slav, Grünfeld and KID.</li>
+        <li><strong>Principled Queen's Gambit, Part 1:</strong> my Slav repertoire for a while.</li>
+        <li>Also on my shelf: Alonso, Catalan.</li>
+      </ul>
+      <h4 class="minor-h">Black against sidelines</h4>
+      <ul class="check-list">
+        <li><strong>Schandorff, <em>QGD Against Everything</em>:</strong> started my "QGD renaissance."</li>
+        <li><strong>Ganguly:</strong> high quality and independent, but not ideal alongside a QGD system.</li>
+        <li><strong>Krishnater:</strong> ambitious and tricky, but less practical.</li>
+        <li>Also on my shelf: Neiksans, Reversed English.</li>
+      </ul>
+      <p><strong>Also on my shelf:</strong> Giri Najdorf, Gustafsson 1...e5, Gawain Jones 1...e5 and Schandorff Accelerated Dragon against 1.e4; Ganguly Nimzo, Sielecki &amp; Barrish Nimzo-Ragozin, Shankland Semi-Slav, Schandorff QGD and Krishnater QGD against 1.d4.</p>
+
+      <h4 class="sub-h">More from me</h4>
+      <ul class="check-list">
+        <li><strong>My annotated games:</strong> <a href="https://lichess.org/study/oAqAo3ZN" target="_blank">my favorite games on Lichess</a></li>
+        <li><strong>Books I recommend</strong> <span class="coming-soon">COMING SOON</span></li>
+      </ul>
+    </div>
+
+    <div class="subsection" id="sub-improvement-upcoming">
+      <div class="subsection-label">In Progress</div>
+      <h3>Coming Soon</h3>
+      <p>These sections are still being written:</p>
+      <ul class="check-list">
+        <li><strong>Tactics &amp; Calculation</strong> <span class="coming-soon">COMING SOON</span></li>
+        <li><strong>Middlegames</strong> <span class="coming-soon">COMING SOON</span></li>
+        <li><strong>Endgames</strong> <span class="coming-soon">COMING SOON</span></li>
+        <li><strong>Mindset &amp; Psychology</strong> <span class="coming-soon">COMING SOON</span></li>
+        <li><strong>Decision-Making Frameworks</strong> <span class="coming-soon">COMING SOON</span></li>
+        <li><strong>The Adult Improver Experience</strong> <span class="coming-soon">COMING SOON</span></li>
+      </ul>
+      <p>Want help with any of these now? <a href="#coaching" onclick="showPage('coaching'); return false;">Book a lesson</a>.</p>
+    </div>
+
+  </div>
+  <footer>© 2026 <span>Suhaas Narayanan</span> · All rights reserved</footer>
+</div>
+
+<!-- ══ COACHING ══ -->
+<div class="page" id="page-coaching">
+  <div class="section-hero">
+    <h2>Coaching <span>Services</span></h2>
+    <p>Personalized chess instruction for all levels, from beginners to tournament players.</p>
+  </div>
+
+  <div class="sub-nav" id="subnav-coaching">
+    <button class="active" onclick="scrollToSub('coaching','packages',event)">Packages</button>
+    <button onclick="scrollToSub('coaching','approach',event)">My Approach</button>
+    <button onclick="scrollToSub('coaching','testimonials',event)">Testimonials</button>
+  </div>
+
+  <div class="section-content">
+
+    <div class="subsection" id="sub-coaching-packages">
+      <div class="subsection-label">Choose Your Path</div>
+      <h3>Coaching Packages</h3>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Training Games</h3>
+            <div class="pricing-price">$20</div>
+            <div class="pricing-per">per 30-min session</div>
+          </div>
+          <ul class="pricing-features">
+            <li>Beginner to advanced players</li>
+            <li>Competitive training games</li>
+            <li>Opening, middlegame, and endgame analysis</li>
+            <li>Post-session game notes and Diagnosis</li>
+            <li>Homework and study plans</li>
+          </ul>
+          <div class="pricing-cta"><button onclick="showPage('contact')">Book a Session</button></div>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-header">
+            <h3>Fundamentals</h3>
+            <div class="pricing-price">$40</div>
+            <div class="pricing-per">per 60-min session · most popular</div>
+          </div>
+          <ul class="pricing-features">
+            <li>Beginner to advanced players</li>
+            <li>Game analysis & annotation</li>
+            <li>Positional chess & strategy</li>
+            <li>Opening repertoire building</li>
+            <li>Endgame mastery</li>
+            <li>Personalized study plans</li>
+          </ul>
+          <div class="pricing-cta"><button onclick="showPage('contact')">Book a Session</button></div>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Tournament Prep</h3>
+            <div class="pricing-price">$60</div>
+            <div class="pricing-per">per 90-min session</div>
+          </div>
+          <ul class="pricing-features">
+            <li>Rated & competitive players</li>
+            <li>Fundamentals' offerings</li>
+            <li>Opponent-specific preparation</li>
+            <li>Advanced opening theory</li>
+            <li>Time management & psychology</li>
+            <li>Ongoing support between events</li>
+          </ul>
+          <div class="pricing-cta"><button onclick="showPage('contact')">Book a Session</button></div>
+        </div>
+      </div>
+      <div class="info-box">
+        <strong>Not sure which package fits?</strong> Reach out through the Contact page — I'll recommend the best fit and we can schedule a free 15-minute intro call before committing. Happy to give discounts for students buying lessons in bulk!
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-coaching-approach">
+      <div class="subsection-label">How I Coach</div>
+      <h3>My Coaching Approach</h3>
+      <p>I coach based on my insights as a player, student, and coach. I focus on sustainable self-improvement, with an emphasis on building general chess understanding and teaching the process of training. Every student is different, and it's fun to shape their journey based on their goals and abilities.</p>
+      <p>Sessions are available online via Zoom and Chess.com/Lichess. Please reach out for current availability.</p>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <h4>Personalized Plans</h4>
+          <p>No one-size-fits-all curricula. Your personal goals, style, and weaknesses drive the sessions.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Game Review at the Core</h4>
+          <p>My favorite training method and the one I focus on most. We analyze your games to find real mistakes and areas to improve.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Long-Term Thinking</h4>
+          <p>I'm interested in building chess and thinking fundamentals for lasting improvement, both on and off the chess board.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Shared Opening Files</h4>
+          <p>I build opening prep with you in a shared Lichess study: like ChessBase, but free, and we can update it together in real time. Homework and other resources come through these too.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection" id="sub-coaching-testimonials">
+      <div class="subsection-label">From Students</div>
+      <h3>Testimonials</h3>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <h4>★★★★★ "Great Interactive Approach"</h4>
+          <p>"The game review sessions were eye-opening, and I enjoyed having my little and big chess questions answered concisely and in real-time."</p>
+          <p class="attribution">— Jack</p>
+        </div>
+        <div class="principle-card">
+          <h4>★★★★★ "Helpful to see the real thinking and processes and challenge"</h4>
+          <p>"Great coach, great resources. It's super helpful to see the real stories of chess improvement."</p>
+          <p class="attribution">— Elijah</p>
+        </div>
+      </div>
+      <p class="rating-note">Rated Excellent · ★★★★★ 5.0/5.0</p>
+    </div>
+
+  </div>
+  <footer>© 2026 <span>Suhaas Narayanan</span> · All rights reserved</footer>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div class="page" id="page-contact">
+  <div class="section-hero">
+    <h2>Get in <span>Touch</span></h2>
+    <p>Ready to dive into chess? I'd love to hear from you.</p>
+  </div>
+
+  <div class="section-content">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Let's Connect</h3>
+        <div class="contact-detail"><span>♔</span><div>Available online via Zoom and Chess.com/Lichess.</div></div>
+        <div class="contact-detail"><span>♟</span><div>Please reach out for current availability. Flexible hours and homework for serious students.</div></div>
+        <div class="contact-detail"><span>♜</span><div>I respond to all inquiries within 48 hours. First-time students can request a free 15-minute intro call.</div></div>
+        <div class="contact-detail"><span></span><div>Have feedback on the guide? I'd love to hear your thoughts — use this form for that too.</div></div>
+      </div>
+
+      <div>
+        <div class="form-row">
+          <div class="form-group"><label for="fname">First Name</label><input type="text" id="fname" placeholder="Magnus"></div>
+          <div class="form-group"><label for="lname">Last Name</label><input type="text" id="lname" placeholder="Carlsen"></div>
+        </div>
+        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="you@example.com"></div>
+        <div class="form-group">
+          <label for="level">Your Chess Level</label>
+          <select id="level">
+            <option value="">Select your level...</option>
+            <option>Complete Beginner</option>
+            <option>Beginner (under 800)</option>
+            <option>Intermediate (800–1400)</option>
+            <option>Club Player (1400–1800)</option>
+            <option>Advanced (1800+)</option>
+            <option>Competitive / Tournament Player</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="reason">Reason for Reaching Out</label>
+          <select id="reason">
+            <option value="">Select...</option>
+            <option>Coaching inquiry — Training Games</option>
+            <option>Coaching inquiry — Fundamentals</option>
+            <option>Coaching inquiry — Tournament Prep</option>
+            <option>Not sure — need a recommendation</option>
+            <option>Feedback on the guide</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="goals">Tell Me More</label><textarea id="goals" placeholder="What are you hoping to work on? Any upcoming tournaments? Feedback on the site? Say anything!"></textarea></div>
+        <button class="submit-btn" onclick="submitForm()">Send Message ♟</button>
+        <div class="success-msg" id="success">✓ Message sent! I'll be in touch within 48 hours.</div>
+        <div class="error-msg" id="form-error">✗ There was a problem sending your message. Please try again.</div>
+      </div>
+    </div>
+  </div>
+  <footer>© 2026 <span>Suhaas Narayanan</span> · All rights reserved</footer>
+</div>
+</div><!-- /#main-content -->
+
+<script>
+  // ── Page navigation with URL hash support ──
+  // Update the address bar without breaking if the browser refuses (e.g. in previews)
+  function pushHash(state, title, url) { try { history.pushState(state, title, url); } catch (_) {} }
+
+  const VALID_PAGES = ['home', 'journey', 'philosophy', 'improvement', 'coaching', 'contact'];
+
+  function showPage(id, pushHistory = true) {
+    if (!VALID_PAGES.includes(id)) return;
+    closeDropdowns();
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo(0, 0);
+    document.querySelectorAll('.sub-nav button').forEach(b => b.classList.remove('active'));
+    const firstSub = document.querySelector('#subnav-' + id + ' button');
+    if (firstSub) firstSub.classList.add('active');
+    if (pushHistory) pushHash({ page: id }, '', '#' + id);
+  }
+
+  function scrollToSub(page, sub, e) {
+    const el = document.getElementById('sub-' + page + '-' + sub);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('#subnav-' + page + ' button').forEach(b => b.classList.remove('active'));
+    if (e && e.target) e.target.classList.add('active');
+    pushHash({ page, sub }, '', '#' + page + '/' + sub);
+  }
+
+  // Go to a page AND jump to one of its subsections (used by the dropdown menu)
+  function goToSub(page, sub) {
+    showPage(page, false);
+    setTimeout(() => {
+      const el = document.getElementById('sub-' + page + '-' + sub);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      const btns = document.querySelectorAll('#subnav-' + page + ' button');
+      btns.forEach(b => b.classList.remove('active'));
+      const match = document.querySelector('#subnav-' + page + ' button[data-sub="' + sub + '"]')
+        || Array.from(btns).find(b => (b.getAttribute('onclick') || '').includes("'" + sub + "'"));
+      if (match) match.classList.add('active');
+    }, 60);
+    pushHash({ page, sub }, '', '#' + page + '/' + sub);
+  }
+
+  // ── Dropdown menu ──
+  function toggleDropdown(e) {
+    e.stopPropagation();
+    const dd = e.currentTarget.closest('.nav-dropdown');
+    const willOpen = !dd.classList.contains('open');
+    closeDropdowns();
+    if (willOpen) {
+      dd.classList.add('open');
+      e.currentTarget.setAttribute('aria-expanded', 'true');
+    }
+  }
+  function closeDropdowns() {
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+      dd.classList.remove('open');
+      const t = dd.querySelector('.nav-dropdown-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+  }
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-dropdown')) closeDropdowns();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeDropdowns();
+  });
+
+  // Handle browser back/forward
+  window.addEventListener('popstate', function (e) {
+    if (e.state && e.state.page) {
+      showPage(e.state.page, false);
+      if (e.state.sub) {
+        setTimeout(() => {
+          const el = document.getElementById('sub-' + e.state.page + '-' + e.state.sub);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      }
+    }
+  });
+
+  // Parse hash on initial load for deep links
+  (function () {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const [page, sub] = hash.split('/');
+    if (VALID_PAGES.includes(page)) {
+      showPage(page, false);
+      if (sub) {
+        setTimeout(() => {
+          const el = document.getElementById('sub-' + page + '-' + sub);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  })();
+
+  // ── FAQ accordion ──
+  function toggleFaq(btn) {
+    const a = btn.nextElementSibling;
+    const arrow = btn.querySelector('.faq-arrow');
+    const isOpen = a.classList.toggle('open');
+    arrow.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+  }
+
+  // ── Contact form via Formspree ──
+  const FORMSPREE_ID = 'xzdwgakv';
+
+  async function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    document.getElementById('success').style.display = 'none';
+    document.getElementById('form-error').style.display = 'none';
+    if (!fname || !email) { alert('Please fill in at least your name and email address.'); return; }
+
+    const btn = document.querySelector('.submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: fname + ' ' + document.getElementById('lname').value.trim(),
+          email,
+          level: document.getElementById('level').value,
+          reason: document.getElementById('reason').value,
+          message: document.getElementById('goals').value,
+        }),
+      });
+      if (res.ok) {
+        document.getElementById('success').style.display = 'block';
+        ['fname', 'lname', 'email', 'level', 'reason', 'goals'].forEach(id => {
+          document.getElementById(id).value = '';
+        });
+      } else {
+        document.getElementById('form-error').style.display = 'block';
+      }
+    } catch (_) {
+      document.getElementById('form-error').style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message ♟';
+    }
+  }
+</script>
+</body>
+</html>
