@@ -8,7 +8,24 @@
 <meta property="og:title" content="Suhaas Narayanan — National Master, Chess Coach">
 <meta property="og:description" content="USCF National Master and chess coach sharing his journey to 2200. Free chess improvement guide, coaching packages, and more.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://suhaasnara.github.io">
+<meta property="og:url" content="https://suhaasnarayanan.com/chess/">
+<link rel="canonical" href="https://suhaasnarayanan.com/chess/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%2313284a%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-family=%27Georgia,serif%27 font-size=%2740%27 text-anchor=%27middle%27 fill=%27%23ffffff%27%3ES%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Suhaas Narayanan",
+  "url": "https://suhaasnarayanan.com/",
+  "description": "USCF National Master, chess coach and tournament director",
+  "sameAs": [
+    "https://suhaasnarayanan.com/chess/",
+    "https://www.chess.com/member/coachsuhaas",
+    "https://lichess.org/@/suhaasn",
+    "https://www.uschess.org/msa/MbrDtlMain.php?14290675"
+  ]
+}
+</script>
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Suhaas Narayanan — National Master, Chess Coach">
 <meta name="twitter:description" content="USCF National Master and chess coach sharing his journey to 2200. Free chess improvement guide, coaching packages, and more.">
@@ -54,7 +71,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
   body { font-family: var(--sans); font-size: var(--fs-body); background: var(--white); color: var(--ink); line-height: 1.65; -webkit-font-smoothing: antialiased; }
   h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; color: var(--navy); line-height: 1.2; text-wrap: balance; }
   a { color: var(--blue); text-underline-offset: 3px; text-decoration-thickness: 1px; }
@@ -70,7 +86,7 @@
     position: sticky; top: 0; z-index: 100;
     border-bottom: 1px solid var(--line);
   }
-  .nav-logo { font-family: var(--serif); color: var(--navy); font-size: 1.25rem; cursor: pointer; }
+  .nav-logo { font-family: var(--serif); color: var(--navy); font-size: 1.25rem; cursor: pointer; text-decoration: none; }
   .nav-links { display: flex; gap: 2px; align-items: center; }
   .nav-links button {
     background: none; border: none; color: var(--muted);
@@ -99,7 +115,7 @@
   .nav-dropdown-menu .menu-divider { border: none; border-top: 1px solid var(--line); margin: 4px 0; }
 
   /* ── PAGES ── */
-  .page { display: none; animation: fadeIn 0.3s ease; }
+  .page { display: none; animation: fadeIn 0.15s ease-out; }
   .page.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -221,6 +237,7 @@
 
   /* Blog cards */
   .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s3); }
+  .blog-grid > :only-child { grid-column: 1 / -1; max-width: 65ch; }
   a.blog-card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); transition: border-color 0.2s; }
   a.blog-card:hover { border-color: var(--blue); }
   .blog-card-header { padding: var(--s3) var(--s3) 0; }
@@ -304,7 +321,6 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
     .page { animation: none; }
   }
 </style>
@@ -313,7 +329,7 @@
 <a class="skip-link" href="#main-content">Skip to content</a>
 
 <nav>
-  <div class="nav-logo" onclick="showPage('home')">Suhaas Narayanan</div>
+  <a class="nav-logo" href="#home" onclick="showPage('home'); return false;">Suhaas Narayanan</a>
   <div class="nav-links">
     <button onclick="showPage('home')" class="active" id="nav-home">Home</button>
     <button onclick="showPage('journey')" id="nav-journey">My Journey</button>
@@ -334,7 +350,7 @@
         <button role="menuitem" onclick="goToSub('improvement','prep')">Prep Work</button>
         <button role="menuitem" onclick="goToSub('improvement','communities')">Communities</button>
         <hr class="menu-divider">
-        <button role="menuitem" onclick="goToSub('improvement','resources')">Resources &amp; Reviews</button>
+        <button role="menuitem" onclick="goToSub('improvement','resources')">Resources</button>
         <button role="menuitem" onclick="goToSub('improvement','upcoming')">Coming Soon</button>
       </div>
     </div>
@@ -349,7 +365,7 @@
 <div class="page active" id="page-home">
   <div class="hero">
     <div class="hero-content">
-      <div class="hero-badge">National Master · 20+ Years of Chess</div>
+      <div class="hero-badge">National Master · Playing Since Age 4</div>
       <h1>Suhaas Narayanan.<br><em>Chess Coach & NM.</em></h1>
       <p>I'm a chess enthusiast, player, director, and coach. This site reflects on what worked — and what didn't — on my journey to 2200 USCF, in hopes that it can help others on their own chess paths.</p>
       <div class="hero-btns">
@@ -357,10 +373,10 @@
         <button class="btn-secondary" onclick="showPage('journey')">My Story</button>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years Playing</div></div>
+        <div class="stat"><div class="stat-num">Age 4</div><div class="stat-label">Started Playing</div></div>
         <div class="stat"><div class="stat-num">2200+</div><div class="stat-label">USCF Rating</div></div>
         <div class="stat"><div class="stat-num">NM</div><div class="stat-label">National Master</div></div>
-        <div class="stat"><div class="stat-num">5.0★</div><div class="stat-label">Student Rating</div></div>
+        <div class="stat"><div class="stat-num">Coach</div><div class="stat-label">&amp; Tournament Director</div></div>
       </div>
     </div>
   </div>
@@ -371,7 +387,6 @@
         <h2>About This Site</h2>
         <p>This is a passion project born from my own long road to National Master. I want to share my steps and missteps — openly and honestly — so others can learn from them.</p>
         <p>Primarily aimed at chess players and improvers of all levels. Take what's useful, skip what isn't. Everything here is free.</p>
-        <p><em>"Rated Excellent ★★★★★ 5.0/5.0"</em></p>
       </div>
       <div class="home-cards">
         <div class="home-card"><h4>Reflection</h4><p>It's been a long journey, and I'm grateful for every part of it.</p></div>
@@ -417,14 +432,14 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-year">Third Grade</div>
-          <h4>Top 5 Nationally</h4>
-          <p>Ranked among the top players my age in the US. Lots of results, lots of pressure.</p>
+          <h4>Tied for 5th Nationally</h4>
+          <p>Tied for 5th at the K-3 National Tournament. Lots of results, and lots of pressure.</p>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-year">Middle &amp; High School</div>
           <h4>Burnout</h4>
-          <p>I stepped away from chess and found new competitions to love. Looking back, I appreciate the break to explore other factes of life.</p>
+          <p>I stepped away from chess and found new competitions to love. Looking back, I appreciate the break to explore other facets of life.</p>
         </div>
       </div>
     </div>
@@ -504,7 +519,7 @@
       <div class="principles-grid">
         <div class="principle-card">
           <h4>Openings (Too Much)</h4>
-          <p>Fun, but not always good ROI I bought a lot of courses and switched lines often. Narrowing my repertoire did more for me than adding to it.</p>
+          <p>Fun, but not always good ROI. I bought a lot of courses and switched lines often. Narrowing my repertoire did more for me than adding to it.</p>
         </div>
         <div class="principle-card">
           <h4>Tactics (Avoided)</h4>
@@ -529,7 +544,7 @@
       <div class="subsection-label">Chapter 5</div>
       <h3>My 60 Favorite Games</h3>
       <p>Here are some of my favorite games from across this chess journey. Not quite 60 games yet though. Wins, losses, brilliancies, blunders - all of it shaped my game.</p>
-      <a class="game-link" href="https://lichess.org/study/oAqAo3ZN" target="_blank">♟ View My 60 Favorite Games on Lichess</a>
+      <a class="game-link" href="https://lichess.org/study/oAqAo3ZN" target="_blank" rel="noopener">♟ View My 60 Favorite Games on Lichess</a>
     </div>
 
   </div>
@@ -547,7 +562,7 @@
     <button class="active" onclick="scrollToSub('philosophy','principles',event)">Core Principles</button>
     <button onclick="scrollToSub('philosophy','profile',event)">Your Chess Profile</button>
     <button onclick="scrollToSub('philosophy','faq',event)">FAQ</button>
-    <button onclick="scrollToSub('philosophy','blog',event)">Blog Posts</button>
+    <button onclick="scrollToSub('philosophy','blog',event)">Writing</button>
   </div>
 
   <div class="section-content">
@@ -611,7 +626,7 @@
         </div>
       </div>
       <div class="info-box">
-        <strong>My Example:</strong> I'm a calm, positional player who is heavily booked up on openings. I play a mix of bullet and OTB classical. Chess fluctuates between hobby and obsession for me. What I get out of chess is fun, goodnes, truth, and beauty.
+        <strong>My Example:</strong> I'm a calm, positional player who is heavily booked up on openings. I play a mix of bullet and OTB classical. Chess fluctuates between hobby and obsession for me. What I get out of chess is fun, goodness, truth, and beauty.
       </div>
     </div>
 
@@ -647,8 +662,8 @@
 
     <div class="subsection" id="sub-philosophy-blog">
       <div class="subsection-label">More Ideas</div>
-      <h3>Blog Posts</h3>
-      <p>In-depth pieces on chess, improvement, and the journey. Click any post to read more.</p>
+      <h3>Writing</h3>
+      <p>Longer pieces on chess and improvement. More are on the way.</p>
       <div class="blog-grid">
         <a class="blog-card" href="blog/the-final-push.html">
           <div class="blog-card-header">
@@ -657,33 +672,6 @@
           <div class="blog-card-body">
             <p>What actually contributed to reaching NM? A reflection on the specific changes and mindset shifts that made the difference in the end.</p>
             <span class="blog-tag">Improvement</span>
-          </div>
-        </a>
-        <a class="blog-card" href="blog/openings.html">
-          <div class="blog-card-header">
-            <h4>Openings: More or Less?</h4>
-          </div>
-          <div class="blog-card-body">
-            <p>Opening study is fun — but is it the best use of your time? My honest take on where openings fit in a well-rounded training plan.</p>
-            <span class="blog-tag">Openings</span>
-          </div>
-        </a>
-        <a class="blog-card" href="blog/endgames-first.html">
-          <div class="blog-card-header">
-            <h4>Endgames First</h4>
-          </div>
-          <div class="blog-card-body">
-            <p>The most neglected phase of the game is also the most instructive. Why I think endgame study should come before everything else.</p>
-            <span class="blog-tag">Endgames</span>
-          </div>
-        </a>
-        <a class="blog-card" href="blog/tactics-habit.html">
-          <div class="blog-card-header">
-            <h4>Building a Tactics Habit</h4>
-          </div>
-          <div class="blog-card-body">
-            <p>Tactics are the highest-ROI training activity at almost every level. Here's how to build a daily habit that actually sticks.</p>
-            <span class="blog-tag">Tactics</span>
           </div>
         </a>
       </div>
@@ -736,7 +724,7 @@
       <p>Chess training takes many forms. These are the core areas I've found, and each one has more specific skills to work on as you progress. There's a lot to improve, which is both daunting and exciting: there's always something new to learn.</p>
       <p>The good news is that you rarely get weaker in the short term (one to six months). You just get rusty or less sharp. Thanks to muscle memory, regaining your form is much easier than building it the first time.</p>
       <div class="info-box">
-        <strong>My daily routine:</strong> a few tactics (I recommend at least 5 <a href="https://lichess.org/training" target="_blank">Lichess puzzles</a> a day to stay sharp), a rapid game, and a review of that game. If you only do one thing, do this.
+        <strong>My daily routine:</strong> a few tactics (I recommend at least 5 <a href="https://lichess.org/training" target="_blank" rel="noopener">Lichess puzzles</a> a day to stay sharp), a rapid game, and a review of that game. If you only do one thing, do this.
       </div>
       <div class="principles-grid grid-3">
         <div class="principle-card">
@@ -769,7 +757,7 @@
     <div class="subsection" id="sub-improvement-level">
       <div class="subsection-label">How to Train</div>
       <h3>What Should I Do at My Level?</h3>
-      <p>I'm not going to reinvent the wheel here. For a level-by-level training plan, I point people to <a href="https://www.chessdojo.club" target="_blank">ChessDojo</a>. It's a training program covering ratings from 0 to 2500, with free and paid tiers, founded by GM Jesse Kraai, IM Kostya Kavutskiy and IM David Pruess. Its Discord is very active, with training games and book clubs.</p>
+      <p>I'm not going to reinvent the wheel here. For a level-by-level training plan, I point people to <a href="https://www.chessdojo.club" target="_blank" rel="noopener">ChessDojo</a>. It's a training program covering ratings from 0 to 2500, with free and paid tiers, founded by GM Jesse Kraai, IM Kostya Kavutskiy and IM David Pruess. Its Discord is very active, with training games and book clubs.</p>
       <p>What I like about it is the focus on fundamentals:</p>
       <ul class="check-list">
         <li><strong>Play lots of games.</strong> Serious games are where improvement starts.</li>
@@ -785,8 +773,8 @@
     <div class="subsection" id="sub-improvement-review">
       <div class="subsection-label">My Favorite Training Method</div>
       <h3>How I Review Games</h3>
-      <p>After any longer game (10+ minutes), add it to a <a href="https://lichess.org/study" target="_blank">Lichess study</a>. I keep all my training games together in one study so I can see my progress and spot patterns over time. I also add each game to my opening file for that line (more on that under <a href="#improvement/openings" onclick="goToSub('improvement','openings'); return false;">Openings</a>).</p>
-      <p>To track results over time, I use a <a href="https://docs.google.com/spreadsheets/d/1BPghNkw5zuv0cW8Yi_REqEJH5LXP_z4WmbX5KVlIFSI/edit?usp=sharing" target="_blank">self-analysis spreadsheet</a> for openings and for tournament and training games. Feel free to make a copy.</p>
+      <p>After any longer game (10+ minutes), add it to a <a href="https://lichess.org/study" target="_blank" rel="noopener">Lichess study</a>. I keep all my training games together in one study so I can see my progress and spot patterns over time. I also add each game to my opening file for that line (more on that under <a href="#improvement/openings" onclick="goToSub('improvement','openings'); return false;">Openings</a>).</p>
+      <p>To track results over time, I use a <a href="https://docs.google.com/spreadsheets/d/1BPghNkw5zuv0cW8Yi_REqEJH5LXP_z4WmbX5KVlIFSI/edit?usp=sharing" target="_blank" rel="noopener">self-analysis spreadsheet</a> for openings and for tournament and training games. Feel free to make a copy.</p>
       <h4 class="sub-h">1. Annotate first, without an engine</h4>
       <ul class="check-list">
         <li><strong>Write down your thoughts move by move.</strong> Keep notes brief and to the point, like "expected 7…Ng4 but he went 7…h5."</li>
@@ -884,7 +872,7 @@
       <div class="principles-grid">
         <div class="principle-card">
           <h4>Online, Free</h4>
-          <p><strong>Online Discord Servers</strong>, there are discord servers full of 2000+ OTB players, many of them titled. Also <strong>ChessDojo</strong>, <strong>Chess.com</strong> and <strong>Lichess</strong>.</p>
+          <p><strong>Discord servers:</strong> several are full of 2000+ OTB players, many of them titled. Also <strong>ChessDojo</strong>, <strong>Chess.com</strong> and <strong>Lichess</strong>.</p>
         </div>
         <div class="principle-card">
           <h4>Online, Paid</h4>
@@ -899,17 +887,17 @@
       <h3>Resources</h3>
       <h4 class="sub-h">Where to play and train</h4>
       <ul class="check-list">
-        <li><strong><a href="https://lichess.org" target="_blank">Lichess</a>:</strong> completely free. Unlimited <a href="https://lichess.org/training" target="_blank">puzzles</a> with lots of themes if you get bored of the usual ones, plus <a href="https://lichess.org/study" target="_blank">studies</a> for building your own database and browsing free public lessons. Public studies are especially good for drilling specific positions, like rook endgames.</li>
-        <li><strong><a href="https://www.chess.com" target="_blank">Chess.com</a>:</strong> some features need a paid membership, which I don't think is necessary. If you already pay, its lessons from world-class coaches cover lots of topics and are usually high quality.</li>
-        <li><strong><a href="https://listudy.org" target="_blank">Listudy</a>:</strong> more free tactics training.</li>
-        <li><strong><a href="https://www.chessable.com" target="_blank">Chessable</a>:</strong> digital courses from world-class authors that make it easy to train and follow the comments. Full courses cost money, but up to five "Short &amp; Sweet" opening courses are free per account. They're my top pick for figuring out which openings you like.</li>
+        <li><strong><a href="https://lichess.org" target="_blank" rel="noopener">Lichess</a>:</strong> completely free. Unlimited <a href="https://lichess.org/training" target="_blank" rel="noopener">puzzles</a> with lots of themes if you get bored of the usual ones, plus <a href="https://lichess.org/study" target="_blank" rel="noopener">studies</a> for building your own database and browsing free public lessons. Public studies are especially good for drilling specific positions, like rook endgames.</li>
+        <li><strong><a href="https://www.chess.com" target="_blank" rel="noopener">Chess.com</a>:</strong> some features need a paid membership, which I don't think is necessary. If you already pay, its lessons from world-class coaches cover lots of topics and are usually high quality.</li>
+        <li><strong><a href="https://listudy.org" target="_blank" rel="noopener">Listudy</a>:</strong> more free tactics training.</li>
+        <li><strong><a href="https://www.chessable.com" target="_blank" rel="noopener">Chessable</a>:</strong> digital courses from world-class authors that make it easy to train and follow the comments. Full courses cost money, but up to five "Short &amp; Sweet" opening courses are free per account. They're my top pick for figuring out which openings you like.</li>
       </ul>
       <h4 class="sub-h">Chess media</h4>
-      <p>Watch a wide variety of chess content that interests you, some for fun and some for serious study. I'm a huge fan of <a href="https://www.youtube.com/@DanielNaroditskyGM" target="_blank">Daniel Naroditsky</a>: he's very educational and shares his passion for the game, and his speedruns show how a top GM thinks. The <a href="https://www.youtube.com/@uschessschool" target="_blank">US Chess School</a> lectures are advanced but very good. I also enjoy recaps of top tournaments and following the pro scene, and there's plenty of short-form content if that's more your speed.</p>
+      <p>Watch a wide variety of chess content that interests you, some for fun and some for serious study. I'm a huge fan of the late <a href="https://www.youtube.com/@DanielNaroditskyGM" target="_blank" rel="noopener">Daniel Naroditsky</a> (1995–2025). He was a wonderful teacher who shared his love of the game, and his speedruns remain one of the best windows into how a top GM thinks. The <a href="https://www.youtube.com/@uschessschool" target="_blank" rel="noopener">US Chess School</a> lectures are advanced but very good. I also enjoy recaps of top tournaments and following the pro scene, and there's plenty of short-form content if that's more your speed.</p>
 
       <h4 class="sub-h">More from me</h4>
       <ul class="check-list">
-        <li><strong>My annotated games:</strong> <a href="https://lichess.org/study/oAqAo3ZN" target="_blank">my favorite games on Lichess</a></li>
+        <li><strong>My annotated games:</strong> <a href="https://lichess.org/study/oAqAo3ZN" target="_blank" rel="noopener">my favorite games on Lichess</a></li>
         <li><strong>Books I recommend</strong> <span class="coming-soon">COMING SOON</span></li>
       </ul>
     </div>
@@ -962,7 +950,7 @@
             <li>Beginner to advanced players</li>
             <li>Competitive training games</li>
             <li>Opening, middlegame, and endgame analysis</li>
-            <li>Post-session game notes and Diagnosis</li>
+            <li>Post-session game notes and diagnosis</li>
             <li>Homework and study plans</li>
           </ul>
           <div class="pricing-cta"><button onclick="showPage('contact')">Book a Session</button></div>
@@ -991,7 +979,7 @@
           </div>
           <ul class="pricing-features">
             <li>Rated & competitive players</li>
-            <li>Fundamentals' offerings</li>
+            <li>Everything in Fundamentals</li>
             <li>Opponent-specific preparation</li>
             <li>Advanced opening theory</li>
             <li>Time management & psychology</li>
@@ -1041,7 +1029,7 @@
         </div>
         <div class="principle-card">
           <h4>★★★★★ "Helpful to see the real thinking and processes and challenge"</h4>
-          <p>"Great coach, great resources. It's super helpful to hear and live real stories of chess improvement."</p>
+          <p>"Great coach, great resources. It's super helpful to see the real stories of chess improvement."</p>
           <p class="attribution">— Elijah</p>
         </div>
       </div>
@@ -1066,6 +1054,7 @@
         <div class="contact-detail"><span>♔</span><div>Available online via Zoom and Chess.com/Lichess.</div></div>
         <div class="contact-detail"><span>♟</span><div>Please reach out for current availability. Flexible hours and homework for serious students.</div></div>
         <div class="contact-detail"><span>♜</span><div>I respond to all inquiries within 48 hours. First-time students can request a free 15-minute intro call.</div></div>
+        <div class="contact-detail"><span></span><div>Find me on <a href="https://www.chess.com/member/coachsuhaas" target="_blank" rel="noopener">Chess.com</a> and <a href="https://lichess.org/@/suhaasn" target="_blank" rel="noopener">Lichess</a>.</div></div>
         <div class="contact-detail"><span></span><div>Have feedback on the guide? I'd love to hear your thoughts — use this form for that too.</div></div>
       </div>
 
@@ -1117,6 +1106,28 @@
 
   const VALID_PAGES = ['home', 'journey', 'philosophy', 'improvement', 'coaching', 'contact'];
 
+  // Which subsection a section-menu button points to
+  function subOf(btn) {
+    if (btn.dataset.sub) return btn.dataset.sub;
+    const m = (btn.getAttribute('onclick') || '').match(/'[^']+','([^']+)'/);
+    return m ? m[1] : null;
+  }
+
+  // Highlight the section-menu button for a subsection
+  function setActiveSub(page, sub) {
+    document.querySelectorAll('#subnav-' + page + ' button').forEach(b => {
+      b.classList.toggle('active', subOf(b) === sub);
+    });
+  }
+
+  // Jump straight to a subsection (instant, so it never feels sluggish)
+  function jumpToSub(page, sub) {
+    const el = document.getElementById('sub-' + page + '-' + sub);
+    if (!el) return;
+    el.scrollIntoView({ block: 'start' });
+    setActiveSub(page, sub);
+  }
+
   function showPage(id, pushHistory = true) {
     if (!VALID_PAGES.includes(id)) return;
     closeDropdowns();
@@ -1124,35 +1135,34 @@
     document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
     document.getElementById('nav-' + id).classList.add('active');
-    window.scrollTo(0, 0);
-    document.querySelectorAll('.sub-nav button').forEach(b => b.classList.remove('active'));
+    window.scrollTo({ top: 0, behavior: 'instant' });
     const firstSub = document.querySelector('#subnav-' + id + ' button');
-    if (firstSub) firstSub.classList.add('active');
+    if (firstSub) setActiveSub(id, subOf(firstSub));
     if (pushHistory) pushHash({ page: id }, '', '#' + id);
   }
 
-  function scrollToSub(page, sub, e) {
-    const el = document.getElementById('sub-' + page + '-' + sub);
-    if (!el) return;
-    el.scrollIntoView({ behavior: 'smooth' });
-    document.querySelectorAll('#subnav-' + page + ' button').forEach(b => b.classList.remove('active'));
-    if (e && e.target) e.target.classList.add('active');
+  function scrollToSub(page, sub) {
+    jumpToSub(page, sub);
     pushHash({ page, sub }, '', '#' + page + '/' + sub);
   }
 
-  // Go to a page AND jump to one of its subsections (used by the dropdown menu)
-  function goToSub(page, sub) {
+  // Go to a page AND jump to one of its subsections (used by the dropdown menu and links)
+  function goToSub(page, sub, pushHistory = true) {
     showPage(page, false);
-    setTimeout(() => {
-      const el = document.getElementById('sub-' + page + '-' + sub);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-      const btns = document.querySelectorAll('#subnav-' + page + ' button');
-      btns.forEach(b => b.classList.remove('active'));
-      const match = document.querySelector('#subnav-' + page + ' button[data-sub="' + sub + '"]')
-        || Array.from(btns).find(b => (b.getAttribute('onclick') || '').includes("'" + sub + "'"));
-      if (match) match.classList.add('active');
-    }, 60);
-    pushHash({ page, sub }, '', '#' + page + '/' + sub);
+    jumpToSub(page, sub);
+    if (pushHistory) pushHash({ page, sub }, '', '#' + page + '/' + sub);
+  }
+
+  // Keep the section menu in sync while scrolling
+  if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const m = en.target.id.match(/^sub-([a-z]+)-(.+)$/);
+        if (m) setActiveSub(m[1], m[2]);
+      });
+    }, { rootMargin: '-140px 0px -55% 0px' });
+    document.querySelectorAll('.subsection').forEach(s => spy.observe(s));
   }
 
   // ── Dropdown menu ──
@@ -1182,31 +1192,22 @@
 
   // Handle browser back/forward
   window.addEventListener('popstate', function (e) {
-    if (e.state && e.state.page) {
-      showPage(e.state.page, false);
-      if (e.state.sub) {
-        setTimeout(() => {
-          const el = document.getElementById('sub-' + e.state.page + '-' + e.state.sub);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 50);
-      }
-    }
+    const s = e.state || {};
+    const [page, sub] = s.page ? [s.page, s.sub] : (location.hash.slice(1) || 'home').split('/');
+    if (!VALID_PAGES.includes(page)) return;
+    if (sub) goToSub(page, sub, false); else showPage(page, false);
   });
 
-  // Parse hash on initial load for deep links
+  // Open the right page on first load (deep links like #improvement/review)
   (function () {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
     const [page, sub] = hash.split('/');
-    if (VALID_PAGES.includes(page)) {
-      showPage(page, false);
-      if (sub) {
-        setTimeout(() => {
-          const el = document.getElementById('sub-' + page + '-' + sub);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    }
+    if (!VALID_PAGES.includes(page)) return;
+    if (!sub) { showPage(page, false); return; }
+    goToSub(page, sub, false);
+    // Re-align once web fonts finish loading, since they can shift the layout slightly
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => jumpToSub(page, sub));
   })();
 
   // ── FAQ accordion ──

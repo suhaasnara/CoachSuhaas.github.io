@@ -3,179 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Final Push — Suhaas Narayanan</title>
-<meta name="description" content="What actually contributed to the final push to National Master? A reflection on the specific changes and mindset shifts that made the difference.">
-<meta property="og:title" content="The Final Push — Suhaas Narayanan">
-<meta property="og:description" content="A reflection on reaching 2200 USCF — the specific changes and mindset shifts that made the difference in the end.">
+<title>The Final Push to NM — Suhaas Narayanan</title>
+<meta name="description" content="How Suhaas Narayanan went from a low point below 2100 to National Master at 2204: what he changed, the tournaments that turned it around, and what he'd tell other improvers.">
+<meta property="og:title" content="The Final Push to NM — Suhaas Narayanan">
+<meta property="og:description" content="From below 2100 to National Master: what changed, and the tournaments that turned it around.">
 <meta property="og:type" content="article">
+<meta property="og:url" content="https://suhaasnarayanan.com/chess/blog/the-final-push.html">
+<link rel="canonical" href="https://suhaasnarayanan.com/chess/blog/the-final-push.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%2313284a%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-family=%27Georgia,serif%27 font-size=%2740%27 text-anchor=%27middle%27 fill=%27%23ffffff%27%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
 <style>
+  /* Same design tokens as the main chess site */
   :root {
-    --navy: #1a3a5c; --blue: #2563a8; --blue-light: #3b7dd8;
-    --blue-pale: #e8f0fb; --white: #ffffff; --off-white: #f4f7fc;
-    --gray-light: #e2e8f0; --gray: #64748b; --dark: #1e2a3a; --text: #1e2a3a;
+    --navy: #13284a; --ink: #1b2636; --muted: #536175; --blue: #1f4e8c;
+    --blue-on-navy: #a9c4ec; --band: #f2f6fb; --callout: #e2eaf6; --line: #d9e1ec; --white: #ffffff;
+    --serif: 'Libre Caslon Text', Georgia, 'Times New Roman', serif;
+    --sans: 'Source Sans 3', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --content: 680px;
+    --gutter: max(24px, calc((100% - var(--content)) / 2));
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Georgia', serif; background: var(--white); color: var(--text); }
+  body { font-family: var(--sans); font-size: 1.0625rem; line-height: 1.7; color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; }
+  a { color: var(--blue); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: var(--navy); }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; color: var(--navy); line-height: 1.2; text-wrap: balance; }
 
-  nav {
-    background: var(--white); padding: 0 40px;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px; position: sticky; top: 0; z-index: 100;
-    border-bottom: 2px solid var(--blue-pale);
-    box-shadow: 0 2px 12px rgba(37,99,168,0.07);
-  }
-  .nav-logo { color: var(--navy); font-size: 1.1rem; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 10px; }
-  .nav-logo span { font-size: 1.4rem; color: var(--blue); }
-  .nav-back { color: var(--gray); font-size: 0.85rem; text-decoration: none; padding: 7px 12px; border-radius: 4px; transition: all 0.2s; }
-  .nav-back:hover { color: var(--blue); background: var(--blue-pale); }
+  nav { height: 68px; padding: 0 max(24px, calc((100% - 1120px) / 2)); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: var(--white); }
+  .nav-logo { font-family: var(--serif); font-size: 1.25rem; color: var(--navy); text-decoration: none; }
+  .nav-back { font-size: 0.95rem; color: var(--muted); text-decoration: none; }
+  .nav-back:hover { color: var(--navy); }
 
-  .post-hero {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-    color: var(--white); padding: 64px 40px 56px; text-align: center;
-  }
-  .post-hero .tag { display: inline-block; background: rgba(255,255,255,0.15); color: var(--white); font-size: 0.72rem; font-weight: bold; letter-spacing: 2px; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.25); }
-  .post-hero h1 { font-size: 2.4rem; line-height: 1.2; margin-bottom: 16px; }
-  .post-hero .subtitle { font-size: 1rem; color: rgba(255,255,255,0.78); max-width: 600px; margin: 0 auto; line-height: 1.7; }
-  .post-meta { margin-top: 24px; font-size: 0.8rem; color: rgba(255,255,255,0.55); letter-spacing: 0.5px; }
+  header { background: var(--navy); color: var(--white); padding: 72px var(--gutter) 48px; }
+  .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-on-navy); margin-bottom: 16px; }
+  header h1 { font-size: 2.75rem; color: var(--white); letter-spacing: -0.01em; }
+  header h1 em { color: var(--blue-on-navy); }
+  header p { color: rgba(255, 255, 255, 0.78); font-size: 1.15rem; margin-top: 16px; max-width: 60ch; }
+  .byline { font-size: 0.9rem; color: rgba(255, 255, 255, 0.6) !important; margin-top: 20px !important; }
 
-  .post-body { max-width: 720px; margin: 0 auto; padding: 56px 40px 80px; }
-  .post-body h2 { font-size: 1.5rem; color: var(--navy); margin: 48px 0 14px; border-left: 4px solid var(--blue); padding-left: 14px; }
-  .post-body h3 { font-size: 1.15rem; color: var(--navy); margin: 32px 0 10px; }
-  .post-body p { color: var(--gray); line-height: 1.85; margin-bottom: 18px; font-size: 1rem; }
-  .post-body p:first-of-type { font-size: 1.07rem; color: #3a4a5a; }
-  .post-body ul { margin: 0 0 18px 24px; }
-  .post-body ul li { color: var(--gray); line-height: 1.8; margin-bottom: 8px; font-size: 0.97rem; }
+  article { padding: 56px var(--gutter) 72px; }
+  article p { margin-bottom: 18px; color: var(--ink); }
+  article h2 { font-size: 1.75rem; margin: 48px 0 16px; }
+  article h2:first-child { margin-top: 0; }
+  article ul { list-style: none; margin: 0 0 24px; }
+  article li { position: relative; padding: 10px 0 10px 22px; border-bottom: 1px solid var(--line); }
+  article li:last-child { border-bottom: none; }
+  article li::before { content: ''; position: absolute; left: 2px; top: 22px; width: 6px; height: 6px; background: var(--blue); }
+  article li strong, article p strong { color: var(--navy); font-weight: 600; }
 
-  .quote-block { background: var(--blue-pale); color: var(--navy); padding: 32px; border-left: 4px solid var(--blue); border-radius: 6px; font-size: 1.05rem; line-height: 1.7; font-style: italic; margin: 32px 0; }
-  .quote-block cite { display: block; color: var(--blue); font-style: normal; font-size: 0.8rem; margin-top: 12px; letter-spacing: 1px; }
+  .timeline { position: relative; padding-left: 28px; margin: 8px 0 32px; }
+  .timeline::before { content: ''; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; background: var(--line); }
+  .t-item { position: relative; margin-bottom: 28px; }
+  .t-item:last-child { margin-bottom: 0; }
+  .t-item::before { content: ''; position: absolute; left: -28px; top: 7px; width: 9px; height: 9px; background: var(--blue); }
+  .t-when { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); }
+  .t-item h3 { font-size: 1.25rem; margin: 2px 0 6px; }
+  .t-item p { margin: 0; color: var(--muted); }
 
-  .info-box { background: var(--blue-pale); border: 1px solid #c2d9f5; padding: 22px; border-radius: 6px; color: var(--navy); font-size: 0.93rem; line-height: 1.75; margin: 28px 0; }
-  .info-box strong { display: block; margin-bottom: 6px; }
+  .callout { background: var(--callout); padding: 24px; border-radius: 4px; margin: 28px 0; }
+  .callout p:last-child { margin-bottom: 0; }
+  .quote { background: var(--navy); color: var(--white); padding: 32px; border-radius: 4px; font-family: var(--serif); font-style: italic; font-size: 1.35rem; line-height: 1.5; margin: 32px 0; }
 
-  .divider { border: none; border-top: 1px solid var(--gray-light); margin: 40px 0; }
+  .end-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 4px; font-weight: 600; text-decoration: none; }
+  .btn-primary { background: var(--navy); color: var(--white); }
+  .btn-primary:hover { background: var(--blue); color: var(--white); }
+  .btn-secondary { border: 1px solid var(--navy); color: var(--navy); }
+  .btn-secondary:hover { background: var(--band); }
 
-  .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); text-decoration: none; font-size: 0.9rem; font-weight: bold; margin-bottom: 40px; padding: 10px 18px; border: 2px solid var(--blue-pale); border-radius: 4px; transition: all 0.2s; }
-  .back-btn:hover { background: var(--blue-pale); }
-
-  footer { background: var(--navy); color: rgba(255,255,255,0.5); text-align: center; padding: 22px; font-size: 0.82rem; }
-  footer span { color: #a8c8f8; }
+  footer { background: var(--navy); color: rgba(255, 255, 255, 0.55); text-align: center; padding: 24px; font-size: 0.875rem; }
+  footer span { color: var(--white); }
 
   @media (max-width: 640px) {
-    .post-hero h1 { font-size: 1.7rem; }
-    .post-body { padding: 40px 20px 60px; }
     nav { padding: 0 20px; }
+    header { padding: 48px 20px 36px; }
+    header h1 { font-size: 2.1rem; }
+    article { padding: 40px 20px 56px; }
+    article h2 { font-size: 1.5rem; }
+    .quote { padding: 24px; font-size: 1.2rem; }
   }
 </style>
 </head>
 <body>
-
 <nav>
-  <a class="nav-logo" href="../index.html"><span>♔</span> Suhaas Narayanan</a>
-  <a class="nav-back" href="../index.html#philosophy">← Back to Guide</a>
+  <a class="nav-logo" href="../">Suhaas Narayanan</a>
+  <a class="nav-back" href="../#philosophy/blog">← All writing</a>
 </nav>
 
-<div class="post-hero">
-  <div class="tag">Improvement</div>
-  <h1>The Final Push</h1>
-  <p class="subtitle">What actually contributed to reaching 2200 USCF — the specific changes and mindset shifts that made the difference in the end.</p>
-  <div class="post-meta">By Suhaas Narayanan, NM · 2026</div>
-</div>
+<header>
+  <div class="label">Improvement</div>
+  <h1>The Final Push <em>to NM</em></h1>
+  <p>From a low point below 2100 to 2204: what I changed, the tournaments that turned it around, and what I'd tell other improvers.</p>
+  <p class="byline">By Suhaas Narayanan, NM</p>
+</header>
 
-<div class="post-body">
+<article>
+  <h2>The low point</h2>
+  <p>After my comeback, my rating peaked at 2146. Then I went back to university and chess slid down my priority list. A rough winter break and a bad Liberty Bell Open dropped me below 2100.</p>
+  <p>That was the moment I had to be honest with myself. I wasn't going to reach National Master by doing more of the same, so I changed how I trained.</p>
 
-  <a class="back-btn" href="../index.html#philosophy">← Back to Guide</a>
-
-  <p>
-    Reaching National Master — 2200 USCF — is a milestone that sounds clean and definitive from the outside. From the inside, it felt like anything but. There was no single breakthrough moment, no secret method I discovered, no one book that unlocked everything. What I can say, looking back, is that the final push was different from what came before. Here's what actually changed.
-  </p>
-
-  <h2>What the Final Push Wasn't</h2>
-
-  <p>
-    I want to start here, because most chess improvement content focuses on what to add: another opening repertoire, another tactics trainer, another book on positional play. That framing got me into bad habits. The final push wasn't about adding more — it was about being more intentional with what I already had.
-  </p>
-
-  <p>
-    It wasn't a new opening. I didn't suddenly find a sharper weapon that caught opponents off guard. My repertoire barely changed. It wasn't a breakthrough in calculation, either — I was already a reasonably solid calculator. And it wasn't a coach handing me the answer, though good coaching did help.
-  </p>
-
-  <h2>Honest Self-Assessment</h2>
-
-  <p>
-    The single most impactful change was getting genuinely honest about my weaknesses. Not the surface-level "I need to work on tactics" honesty, but the uncomfortable kind — looking at my games without an engine first and asking: <em>why</em> did I make that decision? What did I miss? Where did my thinking break down?
-  </p>
-
-  <p>
-    When I started doing this seriously, I found patterns I'd been ignoring for years. I was consistently underestimating my opponents' defensive resources. I had a habit of committing to plans before I'd calculated the critical lines. I was losing time pressure games in positions I should have been winning, because I hadn't built the habit of thinking about clock management until it was too late.
-  </p>
-
-  <div class="quote-block">
-    "Your losses are your greatest teachers. Analyze your own games without an engine first — this builds the critical thinking that creates improvement."
-    <cite>— A principle I had to learn the hard way</cite>
-  </div>
-
-  <p>
-    None of this was visible to me when I just let Stockfish tell me what the best move was. The engine doesn't tell you <em>why you thought the way you did</em>. That's your job, and it's the harder and more valuable analysis.
-  </p>
-
-  <h2>Consistency Over Intensity</h2>
-
-  <p>
-    Earlier in my chess life, my study was bursty. A week of intense work, then weeks of barely touching a board. This is a common pattern — especially for people who are improving but also have other things going on in their lives. I don't think there's anything wrong with it, but I can say that moving toward more consistent, lighter-touch daily habits was a meaningful shift.
-  </p>
-
-  <p>
-    Even just twenty minutes of focused tactics a day, every day, compounded significantly. Not because of any one session, but because the pattern of engagement kept me calibrated. I wasn't starting from zero each time I sat down to play.
-  </p>
-
-  <div class="info-box">
-    <strong>What my routine looked like in the final year:</strong>
-    Daily tactics (20–30 min), weekly game review (one full game, no engine first), one OTB classical game per month where possible, occasional opening refreshes. Simple — but consistent.
-  </div>
-
-  <h2>Keeping It Fun</h2>
-
-  <p>
-    This sounds like a throwaway point, but it's not. At some point in the grind toward 2200, chess stopped feeling fun for a stretch. I was playing to not lose points rather than to play well. My results during that period were predictably bad.
-  </p>
-
-  <p>
-    The shift that helped was stepping back and reconnecting with what I actually love about chess — the beauty of a well-calculated combination, the satisfaction of a correctly played endgame, the fun of exploring a new idea in the opening. I started playing more blitz just for enjoyment. I went back to studying games I found aesthetically interesting rather than games I thought I "should" study.
-  </p>
-
-  <p>
-    It sounds counterintuitive, but giving myself permission to enjoy chess again is when my results started to stabilize and then climb.
-  </p>
-
-  <h2>The People Around Me</h2>
-
-  <p>
-    I said it on the main site and I'll say it here too: NM really is the friends you make along the way. Training partners who pushed me, opponents who taught me hard lessons, coaches who pointed out things I couldn't see myself, and friends who made showing up to tournaments worth it regardless of the result — all of it mattered.
-  </p>
-
-  <p>
-    Chess improvement is a solo endeavor in many ways. But the journey is better, and probably faster, with good people around you.
-  </p>
-
-  <hr class="divider">
-
-  <h2>What I'd Tell My Earlier Self</h2>
-
+  <h2>What I changed</h2>
   <ul>
-    <li>Spend less time on openings and more time on endgames, especially king and pawn endings.</li>
-    <li>Review your own games before you touch an engine. The uncomfortable truths you find yourself are the ones that stick.</li>
-    <li>Tactics every day. Not a lot — just every day.</li>
-    <li>Play slower time controls than you think you need. Bullet is fun; rapid and classical are where you actually improve.</li>
-    <li>Keep chess fun. If you hate the process, you'll stop. If you stop, none of the rest matters.</li>
+    <li><strong>I finished the Woodpecker Method.</strong> For years I had dodged tactics training. Woodpecker was the first thing that made it fun, and it stopped being the part of chess I avoided.</li>
+    <li><strong>I narrowed my repertoire.</strong> I dropped the Catalan for the Nimzo and the QGD Exchange, and moved to a simpler, system-based repertoire as Black. Owning fewer lines did more for me than buying more courses.</li>
+    <li><strong>I focused on one or two things at a time</strong> instead of trying to fix everything at once.</li>
+    <li><strong>I worked through some of <em>Perfect Your Chess</em></strong> and played training games with lots of review.</li>
+    <li><strong>I played for wins, not perfect games,</strong> and got serious about time management.</li>
   </ul>
 
-  <p>
-    The final push wasn't magic. It was consistency, honesty, and keeping the love for the game alive long enough to get there. I hope some part of this is useful for you.
-  </p>
+  <h2>The turnaround</h2>
+  <div class="timeline">
+    <div class="t-item">
+      <div class="t-when">Summer</div>
+      <h3>Shaking off the rust</h3>
+      <p>A local summer tournament started rusty and finished with strong wins, taking me from 2084 back into the 2100s.</p>
+    </div>
+    <div class="t-item">
+      <div class="t-when">Philly Open</div>
+      <h3>My best event</h3>
+      <p>A draw, then three straight wins (two of them near-perfect games against 2000+ players), then a final-round draw with GM Maxim Dlugy as Black.</p>
+    </div>
+    <div class="t-item">
+      <div class="t-when">Denver</div>
+      <h3>Invitational wins</h3>
+      <p>I beat a 2000-rated player and FM Gunnar Andersen at an invitational event.</p>
+    </div>
+    <div class="t-item">
+      <div class="t-when">2204</div>
+      <h3>National Master</h3>
+      <p>I left for Penn at 2187 and played regular local quads, then got stuck at 2199.28. Finally I won a first-round game against an 1890, withdrew, and finished at 2204.</p>
+    </div>
+  </div>
 
-  <a class="back-btn" href="../index.html#philosophy">← Back to Guide</a>
+  <h2>What I'd tell other improvers</h2>
+  <ul>
+    <li><strong>Find your community.</strong> My hometown chess community was the biggest factor in my comeback. Find people to play, review and talk chess with.</li>
+    <li><strong>Don't neglect your weak spots.</strong> I went too far in one direction and came up short in endgames and tactics. Once I trained endgames properly, my confidence grew a lot.</li>
+    <li><strong>Fewer openings, known well.</strong> Opening study is fun, but a smaller repertoire you understand beats a big one you half-remember.</li>
+    <li><strong>Review your games yourself first.</strong> Annotate without an engine, then check. Here's <a href="../#improvement/review">how I review games</a>.</li>
+    <li><strong>Keep it fun.</strong> A rating goal shouldn't be an end in itself. You won't enjoy reaching it if you hate the process.</li>
+  </ul>
 
-</div>
+  <div class="quote">NM really is the friends we made along the way.</div>
+
+  <p>I'm grateful for every training partner, opponent, coach and friend who made it worth it. If you're on your own path to a goal like this, I hope something here helps. If you'd like help with yours, I also coach.</p>
+
+  <div class="end-links">
+    <a class="btn btn-primary" href="../#coaching">See coaching</a>
+    <a class="btn btn-secondary" href="../#journey">Read my full journey</a>
+  </div>
+</article>
 
 <footer>© 2026 <span>Suhaas Narayanan</span> · All rights reserved</footer>
 </body>
