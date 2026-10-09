@@ -154,6 +154,25 @@
   .home-card p { font-size: var(--fs-small); margin: 0; }
 
 
+
+  /* Home: online profiles */
+  .home-profiles { padding: var(--s6) max(24px, calc((100% - 1040px) / 2)) 0; background: var(--white); }
+  .home-profiles h2 { font-size: var(--fs-section); margin-bottom: var(--s2); }
+  .home-profiles > p { color: var(--muted); max-width: 65ch; margin-bottom: var(--s3); }
+  .profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3); }
+  .profile-card { border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s3); display: flex; flex-direction: column; gap: var(--s2); min-width: 0; background: var(--white); }
+  .profile-head h3 { font-size: var(--fs-card); margin-bottom: 2px; }
+  .profile-handle { font-size: var(--fs-small); color: var(--muted); }
+  .title-badge { display: inline-block; background: var(--navy); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; padding: 1px 6px; border-radius: 2px; margin-right: 4px; vertical-align: 1px; }
+  .profile-stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: var(--s2) 0; }
+  .profile-stats > div { display: flex; flex-direction: column; }
+  .ps-num { font-family: var(--serif); font-size: 1.6rem; color: var(--navy); line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .ps-label { font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+  .profile-blurb { color: var(--muted); font-size: var(--fs-small); flex: 1; }
+  .profile-links { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); margin-top: auto; }
+  .profile-links a { font-weight: 600; font-size: var(--fs-small); text-decoration: none; }
+  .profile-links a:hover { text-decoration: underline; }
+
   /* Home: favorite games (Lichess embed) */
   .home-games { padding: var(--s6) max(24px, calc((100% - 1040px) / 2)); background: var(--white); }
   .home-games h2 { font-size: var(--fs-section); margin-bottom: var(--s2); }
@@ -319,6 +338,8 @@
   /* ── TABLET ── */
   @media (max-width: 900px) {
     .principles-grid.grid-3, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .profile-grid { grid-template-columns: repeat(2, 1fr); }
+    .profile-grid > .profile-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
     .principles-grid.grid-3 > .principle-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
     .pricing-grid > .pricing-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
   }
@@ -339,6 +360,8 @@
     .principles-grid, .principles-grid.grid-3, .pricing-grid, .blog-grid { grid-template-columns: 1fr; }
     .quote-block { padding: var(--s3); font-size: 1.2rem; }
     .home-games { padding-left: 20px; padding-right: 20px; }
+    .home-profiles { padding-left: 20px; padding-right: 20px; }
+    .profile-grid { grid-template-columns: 1fr; }
     .game-tabs { grid-template-columns: repeat(2, 1fr); }
     .game-frame { aspect-ratio: 3 / 4; }
   }
@@ -416,6 +439,51 @@
         <div class="home-card"><h4>A Guide</h4><p>Tips and tricks I took a while to learn, shared here to pay it forward.</p></div>
         <div class="home-card"><h4>For Improvers</h4><p>Aimed at players who want to get better in various aspects of the game.</p></div>
         <div class="home-card"><h4>Fun</h4><p>This website is a passion project, so I hope you enjoy it!</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Online profiles with live ratings (pulled from the public Chess.com and Lichess APIs) -->
+  <div class="home-profiles">
+    <div class="subsection-label">Find Me Online</div>
+    <h2>Play, Follow, or Book a Lesson</h2>
+    <p>Live ratings from my online accounts, plus my coaching profiles.</p>
+    <div class="profile-grid">
+      <div class="profile-card">
+        <div class="profile-head">
+          <div><h3>Chess.com</h3><span class="profile-handle"><span class="title-badge">NM</span> CoachSuhaas</span></div>
+        </div>
+        <div class="profile-stats" id="stats-chesscom">
+          <div><span class="ps-num" data-k="bullet">—</span><span class="ps-label">Bullet</span></div>
+          <div><span class="ps-num" data-k="blitz">—</span><span class="ps-label">Blitz</span></div>
+          <div><span class="ps-num" data-k="rapid">—</span><span class="ps-label">Rapid</span></div>
+        </div>
+        <div class="profile-links">
+          <a href="https://www.chess.com/member/coachsuhaas" target="_blank" rel="noopener">View profile →</a>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-head">
+          <div><h3>Lichess</h3><span class="profile-handle"><span class="title-badge">NM</span> suhaasn</span></div>
+        </div>
+        <div class="profile-stats" id="stats-lichess">
+          <div><span class="ps-num" data-k="bullet">—</span><span class="ps-label">Bullet</span></div>
+          <div><span class="ps-num" data-k="blitz">—</span><span class="ps-label">Blitz</span></div>
+          <div><span class="ps-num" data-k="puzzle">—</span><span class="ps-label">Puzzles</span></div>
+        </div>
+        <div class="profile-links">
+          <a href="https://lichess.org/@/suhaasn" target="_blank" rel="noopener">View profile →</a>
+          <a href="https://lichess.org/coach/suhaasn" target="_blank" rel="noopener">Coach profile →</a>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-head">
+          <div><h3>Chessmates</h3><span class="profile-handle">Fort Collins, CO</span></div>
+        </div>
+        <p class="profile-blurb">My coach profile with Chessmates, the Fort Collins chess community that runs local tournaments, clubs, camps and lessons.</p>
+        <div class="profile-links">
+          <a href="https://chessmatesfc.com/coach/suhaas-narayanan/" target="_blank" rel="noopener">Coach profile →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1252,6 +1320,32 @@
     goToSub(page, sub, false);
     // Re-align once web fonts finish loading, since they can shift the layout slightly
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => jumpToSub(page, sub));
+  })();
+
+  // ── Live ratings for the "Find Me Online" cards (fails quietly to "—") ──
+  (function () {
+    function fill(id, vals) {
+      const box = document.getElementById(id);
+      if (!box) return;
+      box.querySelectorAll('.ps-num').forEach(el => {
+        const v = vals[el.dataset.k];
+        if (v) el.textContent = v;
+      });
+    }
+    fetch('https://api.chess.com/pub/player/coachsuhaas/stats')
+      .then(r => r.json())
+      .then(j => fill('stats-chesscom', {
+        bullet: j.chess_bullet && j.chess_bullet.last.rating,
+        blitz: j.chess_blitz && j.chess_blitz.last.rating,
+        rapid: j.chess_rapid && j.chess_rapid.last.rating
+      })).catch(() => {});
+    fetch('https://lichess.org/api/user/suhaasn')
+      .then(r => r.json())
+      .then(j => {
+        const p = j.perfs || {};
+        const r = k => p[k] && p[k].games ? p[k].rating : null;
+        fill('stats-lichess', { bullet: r('bullet'), blitz: r('blitz'), puzzle: r('puzzle') });
+      }).catch(() => {});
   })();
 
   // ── Favorite games picker (Lichess embed on Home) ──
